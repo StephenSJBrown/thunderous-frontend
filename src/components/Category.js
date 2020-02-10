@@ -11,3 +11,5 @@ const Category = ({ name }) => {
     </Link>
   );
 };
+
+export default Category

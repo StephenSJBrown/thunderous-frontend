@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Header from '../../components/Header'
 import LoadingIndicator from '../../components/LoadingIndicator'
 import Coupon from '../../components/Coupon'
+import Store from "../../components/Store"
 
 const Category = ({ category }) => {
 
@@ -23,7 +24,7 @@ const Category = ({ category }) => {
                 ? <LoadingIndicator/>
                 : <>
                     {stores.map(store => (
-                        <Store name={store.name}/>
+                        <Store name={store.name}/>,
                         store.coupons.map(coupon => (
                             <Coupon name={coupon.name} deal={coupon.deal} points={coupon.points} />
                         ))
