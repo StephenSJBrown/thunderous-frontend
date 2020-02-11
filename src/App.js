@@ -35,19 +35,19 @@ function App() {
       <Route path="/profile" component={Profile} />
       <Route path="/centres" component={Profile} />
 
-      <Route path="/deposit" component={Deposit} />
+      <Route exact path="/deposit/" component={Deposit} />
       <Route path="/deposit/complete" component={Profile} />
 
-      <Route path="/coupons" component={Coupons} />
+      <Route exact path="/coupons/" component={Coupons} />
       <Route path="/coupons/:category" component={Category} />
-      <Route path="/coupons/:store" component={Store} />
-      <Route path="/coupons/:id" component={Coupon} />
-      <Route path="/coupons/mycoupons" component={MyCoupons} />
+      <Route path="/store/:store" component={Store} />
+      <Route path="/coupon/:id" component={Coupon} />
+      {/* <Route path="/coupons/mycoupons" component={MyCoupons} /> */}
 
-      <Route path="/coupons" component={Coupons} />
+      {/* <Route path="/coupons" component={Coupons} />
       <Route path="/coupons/:category" component={Category} />
       <Route path="/coupons/:store" component={Store} />
-      <Route path="/coupons/:id" component={Coupon} />
+      <Route path="/coupons/:id" component={Coupon} /> */}
     </div>
   );
 }

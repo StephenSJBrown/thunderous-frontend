@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Store = ({ name }) => {
+const Store = ({ }) => {
 
     return (
         <>
