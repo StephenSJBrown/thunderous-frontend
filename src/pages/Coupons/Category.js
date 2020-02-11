@@ -13,7 +13,7 @@ const Category = () => {
 
   const [stores, setStores] = useState([
     {
-        id: "1",
+      id: "1",
       storename: "mcdonalds",
       logo: "someurl",
       coupons: [
@@ -64,21 +64,19 @@ const Category = () => {
   // 'coupons':[{'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250},
   // {'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250}]
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(`http://localhost:5000/api/stores/${category}`)
-  //       .then(result => {
-  //         console.log(result);
-  //         setStores(result.data);
-  //         setIsLoading(false);
-  //       })
-  //       .catch(error => {
-  //         console.log("ERROR: ", error);
-  //         setIsLoading(false);
-  //       });
-  //   }, []);
-
-  console.log(stores);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/stores/${category}`)
+      .then(result => {
+        console.log(result.data.stores);
+        setStores(result.data.stores);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.log("ERROR: ", error);
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -90,21 +88,29 @@ const Category = () => {
         <>
           {stores.map(store => (
             <>
-              <h1>{store.storename}</h1>
+              <h1>{store.name}</h1>
               <img src={`"${store.logo}.png"`} />
-              {store.coupons.map(coupon => (
+              {store.coupons.length == 0 ? (
+                <h2> No coupons </h2>
+              ) : (
                 <>
-                  <Coupon
-                    name={coupon.couponname}
-                    deal={coupon.deal}
-                    points={coupon.points}
-                  />
+                  {store.coupons.map(coupon => (
+                    <>
+                      <Coupon
+                        name={coupon.name}
+                        deal={coupon.deal}
+                        points={coupon.points}
+                        id={coupon.id}
+                      />
+                    </>
+                  ))}
                 </>
-              ))}
-              { (store.coupons.length > 2) 
-              ? <SeeAll store={store.storename} id={store.id}></SeeAll>
-              : <></>
-              }
+              )}
+              {store.coupons.length > 2 ? (
+                <SeeAll store={store.name} id={store.id}></SeeAll>
+              ) : (
+                <></>
+              )}
             </>
           ))}
         </>

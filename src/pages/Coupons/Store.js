@@ -12,7 +12,7 @@ const Store = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/stores/store/mcdonald`)
+      .get(`http://localhost:5000/api/stores/store/${store}`)
       .then(result => {
         console.log(result.data.coupons);
         setCoupons(result.data.coupons);
@@ -29,13 +29,14 @@ const Store = () => {
       <h1>Store {store.toUpperCase()}</h1>
       {coupons.map(coupon => (
         <>
-          <Link to={`/coupon/${coupon.id}`}>
+
             <Coupon
               name={coupon.name}
               deal={coupon.deal}
               points={coupon.points}
+              id={coupon.id}
             />
-          </Link>
+
         </>
       ))}
     </>
