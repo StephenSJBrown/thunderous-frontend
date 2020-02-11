@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoadingIndicator from '../../components/LoadingIndicator'
+import LoadingIndicator from "../../components/LoadingIndicator";
 
 const Centres = () => {
   // API ADDRESS:
@@ -10,15 +10,22 @@ const Centres = () => {
   const [placeID, setPlaceID] = useState("");
   const [name, setName] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
       <h1>Centres</h1>
       <p>Your nearest recycling centre is: </p>
-      <h2>{name}</h2>
-      <a href="https://www.google.com/maps/place/?q=place_id:{placeID}">
-        Go there
-      </a>
+      {isLoading ? (
+        <LoadingIndicator></LoadingIndicator>
+      ) : (
+        <>
+          <h2>{name}</h2>
+          <a href="https://www.google.com/maps/place/?q=place_id:{placeID}">
+            Go there
+          </a>
+        </>
+      )}
     </>
   );
 };
