@@ -1,3 +1,9 @@
+body {
+  font-family: 'Dosis', sans-serif;
+  background-color:  #F7FFFB;
+  color:#494949;
+}
+
 .App {
   text-align: center;
 }
