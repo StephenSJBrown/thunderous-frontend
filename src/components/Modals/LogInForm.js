@@ -40,9 +40,9 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
                     draggable: true,
                 });
                 toggle()
-                localStorage.setItem('jwt', response.data.auth_token)
+                localStorage.setItem('jwt', response.data.user.id)
                 setLoggedIn(true)
-                history.push('/profile')
+                // history.push('/profile')
             })
             .catch(error => {
                 console.error(`Error: ${error}`) // so that we know what went wrong if the request failed

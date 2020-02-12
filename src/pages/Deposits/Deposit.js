@@ -1,12 +1,65 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
+import axios from 'axios'
+import { toast } from 'react-toastify'
 import QrReader from "react-qr-scanner";
 
-const Deposit = () => {
-  const [delay, setDelay] = useState(100);
-  const [result, setResult] = useState("No Result");
+const Deposit = ( setCentreObject ) => {
+  const history = useHistory()
 
-  const handleScan = data => {
-    setResult(data);
+  const delay = 1000;
+  const [result, setResult] = useState("");
+  const [centreID, setCentreID] = useState(0);
+
+  const handleScan = link => {
+    if (link) {
+      if (link.includes("localhost:5000/api/deposits/create")) {
+        console.log('link', link)
+        const user = localStorage.getItem("jwt");
+        setResult("TEST: That's the right QR code");
+        setCentreID(
+          link.replace("http://localhost:5000/api/deposits/create/", "")
+        );
+
+        axios({
+            method: 'POST',
+            url: link,
+            data: {
+                user_id: user,
+            }
+        })
+            .then(response => {
+                console.log(response)
+                toast.success(`Centre location recorded`, {
+                    position: "top-left",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+                setCentreObject(response.data.centre)
+                history.push('/deposit/weigh', {
+                  centre: response.data.centre,
+                  a: 1,
+                })
+            })
+            .catch(error => {
+                console.error(error)
+                toast.error(`Couldn't register you at the centre. Please try again`, {
+                    position: "top-left",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            }
+            )
+      } else {
+        setResult("That's not a centre QR code!");
+      }
+    }
   };
 
   const handleError = err => {
@@ -14,8 +67,8 @@ const Deposit = () => {
   };
 
   const previewStyle = {
-    height: 100,
-    width: 100
+    height: 700,
+    width: 1000
   };
 
   return (
@@ -26,7 +79,9 @@ const Deposit = () => {
         onError={handleError}
         onScan={handleScan}
       />
+      <h3>Scan the QR code at the centre</h3>
       <p>{result}</p>
+      <Link to="/deposit/weigh">Weigh</Link>
     </div>
   );
 };

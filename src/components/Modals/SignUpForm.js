@@ -108,7 +108,7 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
                     draggable: true,
                 });
                 toggle()
-                localStorage.setItem('jwt', response.data.auth_token)
+                localStorage.setItem('jwt', response.data.new_user.id)
                 setLoggedIn(true)
                 useHistory.push('/profile')
             })
