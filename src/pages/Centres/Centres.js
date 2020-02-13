@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
-import Script from 'react-load-script'
+// import Script from 'react-load-script'
 
 import LoadingIndicator from "../../components/LoadingIndicator";
 
