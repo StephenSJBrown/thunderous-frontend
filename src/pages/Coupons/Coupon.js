@@ -68,14 +68,14 @@ const Coupon = () => {
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
       ) : (
-        <>
+        <div>
           <h2>{coupon.name}</h2>
           <h2>{coupon.deal}</h2>
           <h3>Expires: {moment(coupon.expiration).format('Do MMMM YYYY')} </h3>
           <p>{coupon.description}</p>
           <h3>{coupon.points}</h3>
           <button onClick={BuyCoupon}></button>
-        </>
+        </div>
       )}
     </>
   );
