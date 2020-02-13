@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
+import Logo from '../../icons/RecycloLogo.png'
+
 
 
 
@@ -110,7 +112,7 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
 
     return (
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader style={headerstyle} toggle={toggle}>Log In</ModalHeader>
+            <ModalHeader style={headerstyle} toggle={toggle}>Log In <img src={Logo}/></ModalHeader>
             <ModalBody>
                 <FormGroup style={formstyle}>
                     <Label style={labelstyle}>Username</Label><br/>
@@ -122,15 +124,15 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
                 </FormGroup>
 
                 <div style={buttondivstyle}>
-                    <Button style={buttonstyle} color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Log In</Button><br/>
-                    <p style={{ marginTop:'35px'}}>or</p><br/>                
-                    <Button style={buttonstyle} color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Log in with Google</Button>
+                    <Button style={buttonstyle} color="link" onClick={logIn} disabled={isDisabled()}>Log In</Button><br/>
+                    <p style={{ marginTop:'35px'}}>or</p><br/>    
+                    <Button style={buttonstyle} color="link" onClick={logIn} disabled={isDisabled()}>Log in with Google</Button>            
                 </div>
 
             </ModalBody>
             <ModalFooter style={footerstyle}>
-                <p>Don't have an account?</p><br/>
-                <link></link>
+                <p>Don't have an account? <Button color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Sign Up</Button></p><br/>
+                <Button>T&CS</Button>
             </ModalFooter>
         </Modal>
     )

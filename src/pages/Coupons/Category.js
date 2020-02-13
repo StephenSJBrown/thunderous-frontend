@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState, useEffect, Component } from "react";
+>>>>>>> login,signin,homepage,coupons frontend semi-complete.
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -7,6 +11,8 @@ import LoadingIndicator from "../../components/LoadingIndicator";
 import Coupon from "../../components/Coupon";
 import Store from "../../components/Store";
 import SeeAll from "../../components/SeeAll";
+import food from "../../icons/food.png"
+import clothing from "../../icons/clothing.png"
 
 const Category = () => {
   let { category } = useParams();
@@ -78,43 +84,49 @@ const Category = () => {
       });
   }, []);
 
+  const imageSwitch = {
+    food: food,
+    clothing: clothing,
+  }
+
   return (
     <>
       <Header />
-      <h1> {category.toUpperCase()}</h1>
+      <h1>{category.toUpperCase()}</h1>
+      <img src={imageSwitch[category.toLowerCase()]} />
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
       ) : (
-        <>
-          {stores.map(store => (
-            <>
-              <h1>{store.name}</h1>
-              <img src={`"${store.logo}.png"`} />
-              {store.coupons.length == 0 ? (
-                <h2> No coupons </h2>
-              ) : (
-                <>
-                  {store.coupons.map(coupon => (
+          <>
+            {stores.map(store => (
+              <>
+                <h1>{store.name}</h1>
+                <img src={`"${store.logo}.png"`} />
+                {store.coupons.length == 0 ? (
+                  <h2> No coupons </h2>
+                ) : (
                     <>
-                      <Coupon
-                        name={coupon.name}
-                        deal={coupon.deal}
-                        points={coupon.points}
-                        id={coupon.id}
-                      />
+                      {store.coupons.map(coupon => (
+                        <>
+                          <Coupon
+                            name={coupon.name}
+                            deal={coupon.deal}
+                            points={coupon.points}
+                            id={coupon.id}
+                          />
+                        </>
+                      ))}
                     </>
-                  ))}
-                </>
-              )}
-              {store.coupons.length > 2 ? (
-                <SeeAll store={store.name} id={store.id}></SeeAll>
-              ) : (
-                <></>
-              )}
-            </>
-          ))}
-        </>
-      )}
+                  )}
+                {store.coupons.length > 2 ? (
+                  <SeeAll store={store.name} id={store.id} ></SeeAll>
+                ) : (
+                    <></>
+                  )}
+              </>
+            ))}
+          </>
+        )}
     </>
   );
 };
