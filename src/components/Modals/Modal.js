@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import LogInForm from './LogInForm'
 import SignUpForm from './SignUpForm'
@@ -14,6 +15,7 @@ const Ting = ({ modal, setModal, toggle, toast, setLoggedIn, loggedIn }) => {
 
   if (isLoginForm) {
     return (
+
         <ModalBody>
           <LogInForm toggle={toggle} modal={modal} setModal={setModal} isLoginForm={isLoginForm} setIsLogInForm={setIsLogInForm} text={text} setText={setText} password={password} setPassword={setPassword} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </ModalBody>

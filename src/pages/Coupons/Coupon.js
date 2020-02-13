@@ -124,8 +124,10 @@ const Coupon = () => {
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
       ) : (
+
         <>
           <CouponPic></CouponPic>
+
           <h2>{coupon.name}</h2>
           <Circle inputColor="#EAC1B4">
             <h1>{coupon.deal}%</h1>
@@ -141,6 +143,7 @@ const Coupon = () => {
             </Button>
           )}
         </>
+
       )}
     </Page>
   );

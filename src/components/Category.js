@@ -1,11 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import food from "../icons/Food.png"
-import clothing from "../icons/clothing.png"
-import hotels from "../icons/hotel.png"
-import experience from "../icons/helicopter.png"
-import travel from "../icons/plane.png"
-import insurance from "../icons/umbrella.png"
+
 
 
 const buttonStyle={
