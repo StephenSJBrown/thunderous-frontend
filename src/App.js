@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 
 import Profile from "./pages/Profile";
 
+import Centres from "./pages/Centres/Centres";
+
 import Coupons from "./pages/Coupons/Coupons";
 import Category from "./pages/Coupons/Category";
 import Store from "./pages/Coupons/Store";
@@ -16,6 +18,8 @@ import Coupon from "./pages/Coupons/Coupon";
 import MyCoupons from "./pages/Coupons/MyCoupons";
 
 import Deposit from "./pages/Deposits/Deposit"
+import Weigh from "./pages/Deposits/Weigh"
+import Result from "./pages/Deposits/Result"
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -33,10 +37,11 @@ function App() {
 
       <Route exact path="/" component={HomePage} />
       <Route path="/profile" component={Profile} />
-      <Route path="/centres" component={Profile} />
+      <Route path="/centres" component={Centres} />
 
-      <Route exact path="/deposit/" component={Deposit} />
-      <Route path="/deposit/complete" component={Profile} />
+      <Route exact path="/deposit/" component={Deposit}/>
+      <Route exact path="/deposit/weigh" component={Weigh}/>
+      <Route path="/deposit/result" component={Result} />
 
       <Route exact path="/coupons/" component={Coupons} />
       <Route path="/coupons/:category" component={Category} />
