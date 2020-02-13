@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-=======
 import React, { useState, useEffect, Component } from "react";
->>>>>>> login,signin,homepage,coupons frontend semi-complete.
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -15,60 +11,10 @@ import food from "../../icons/food.png"
 import clothing from "../../icons/clothing.png"
 
 const Category = () => {
-  let { category } = useParams();
+  let { category } = useParams()
 
-  const [stores, setStores] = useState([
-    {
-      id: "1",
-      storename: "mcdonalds",
-      logo: "someurl",
-      coupons: [
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McJabbit Meal",
-          deal: 55,
-          points: 550
-        }
-      ]
-    },
-    {
-      storename: "mcdonalds",
-      logo: "someurl",
-      coupons: [
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McJabbit Meal",
-          deal: 55,
-          points: 550
-        }
-      ]
-    }
-  ]);
+  const [stores, setStores] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  // Api to pull all the coupons and respective stores for their category, utilising the {category} passed in, and setStores to result
-  // {'store-name':'mcdonalds',
-  // 'store-logo':'someurl',
-  // 'coupons':[{'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250},
-  // {'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250}]
 
   useEffect(() => {
     axios

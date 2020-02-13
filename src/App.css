@@ -1,7 +1,7 @@
 body {
-  font-family: 'Dosis', sans-serif;
-  background-color:  #F7FFFB;
-  color:#494949;
+  font-family: "Dosis", sans-serif;
+  background-color: #f7fffb;
+  color: #494949;
 }
 
 .App {
@@ -41,4 +41,21 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  font-size: 72px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 22;
+}
+p {
+  font-size: 15px;
+}
+
+button {
+  font-family: "Dosis", sans-serif;
 }

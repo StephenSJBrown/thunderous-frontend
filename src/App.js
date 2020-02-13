@@ -16,6 +16,7 @@ import Category from "./pages/Coupons/Category";
 import Store from "./pages/Coupons/Store";
 import Coupon from "./pages/Coupons/Coupon";
 import MyCoupons from "./pages/Coupons/MyCoupons";
+import Redeem from './pages/Coupons/Redeem'
 
 import Deposit from "./pages/Deposits/Deposit"
 import Weigh from "./pages/Deposits/Weigh"
@@ -47,7 +48,10 @@ function App() {
       <Route path="/coupons/:category" component={Category} />
       <Route path="/store/:store" component={Store} />
       <Route path="/coupon/:id" component={Coupon} />
-      {/* <Route path="/coupons/mycoupons" component={MyCoupons} /> */}
+
+      <Route path="/redeem" component={Redeem} />
+
+      {/* <Route path="/mycoupons" component={MyCoupons} /> */}
 
       {/* <Route path="/coupons" component={Coupons} />
       <Route path="/coupons/:category" component={Category} />
