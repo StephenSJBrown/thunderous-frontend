@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
+import Page from '../../components/Page'
+
 // import Script from 'react-load-script'
 
 import LoadingIndicator from "../../components/LoadingIndicator";
@@ -32,7 +34,7 @@ const Centres = () => {
   }, []);
 
   return (
-    <>
+    <Page>
       <h1>Centres</h1>
       <p>Your nearest recycling centre is: </p>
       {isLoading ? (
@@ -45,7 +47,7 @@ const Centres = () => {
           </a>
         </>
       )}
-    </>
+    </Page>
   );
 };
 

@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import QrReader from "react-qr-scanner";
+import Page from '../../components/Page'
 
 const Deposit = ( setCentreObject ) => {
   const history = useHistory()
@@ -71,7 +72,7 @@ const Deposit = ( setCentreObject ) => {
   };
 
   return (
-    <div>
+    <Page>
       <QrReader
         delay={delay}
         style={previewStyle}
@@ -80,7 +81,7 @@ const Deposit = ( setCentreObject ) => {
       />
       <h3>Scan the QR code at the centre</h3>
       <p>{result}</p>
-    </div>
+    </Page>
   );
 };
 

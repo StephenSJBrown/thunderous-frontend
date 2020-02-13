@@ -32,7 +32,7 @@ function App() {
   );
 
   return (
-    <div>
+    <>
       <ToastContainer />
       <Navbar toast={toast} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
 
@@ -52,12 +52,7 @@ function App() {
       <Route path="/redeem" component={Redeem} />
 
       {/* <Route path="/mycoupons" component={MyCoupons} /> */}
-
-      {/* <Route path="/coupons" component={Coupons} />
-      <Route path="/coupons/:category" component={Category} />
-      <Route path="/coupons/:store" component={Store} />
-      <Route path="/coupons/:id" component={Coupon} /> */}
-    </div>
+    </>
   );
 }
 

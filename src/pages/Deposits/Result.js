@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 
+import Page from '../../components/Page'
 import Button from '../../components/Button'
 
 const Result = () => {
@@ -13,7 +14,7 @@ const Result = () => {
   }
 
   return (
-    <>
+    <Page>
       <h2>You deposited</h2>
       <h2>{weight}</h2>
       <h2>kg</h2>
@@ -22,7 +23,7 @@ const Result = () => {
       <Link to="/coupons">
         <Button>See coupons</Button>
       </Link>
-    </>
+    </Page>
   );
 };
 
