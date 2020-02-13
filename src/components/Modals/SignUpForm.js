@@ -3,6 +3,46 @@ import { useHistory } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback, FormGroup, Label, Input } from 'reactstrap'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import Logo from '../../icons/RecycloLogo.png'
+
+const modalstyle={
+    textAlign:'center'
+}
+
+const headerstyle={
+    // textAlign:'center',
+    fontSize:'34px'
+}
+
+const labelstyle={
+    // textAlign:'center',
+    fontSize:'25px',
+    marginTop:'20px'
+}
+
+const inputstyle={
+    border: 'none',
+    borderBottom: '1px solid #494949',
+    backgroundColor:'#F7FFFB',
+    width:'160px',
+    fontSize:'15'
+}
+
+const signupbuttonstyle={
+    borderRadius: '44px', 
+    border: 'none',
+    width: '332px',
+    height: '48px',
+    backgroundColor: '#B0E6CE',
+    marginTop: '30px',
+    fontSize: '20px',
+    fontFamily: '"Dosis", sans-serif',
+    color: '#494949'
+}
+
+const footerstyle={
+    marginTop:'100px'
+}
 
 const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, password, setPassword, setLoggedIn, loggedIn }) => {
     // 1. Code out your Log In and Sign Up as Controlled Form
@@ -128,12 +168,12 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
 
     return (
         <>
-            <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
+            <Modal style={modalstyle} isOpen={modal} toggle={toggle}>
+                <ModalHeader style={headerstyle} toggle={toggle}>Sign Up <img src={Logo}/></ModalHeader>
                 <ModalBody>
                     <FormGroup>
-                        <Label>Username</Label>
-                        <Input type="text"
+                        <Label style={labelstyle} >Username</Label><br/>
+                        <Input style={inputstyle} type="text"
                             value={text}
                             autoFocus
                             onChange={e => {
@@ -162,8 +202,8 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
                                     : "Sorry, this username is taken!"
                                 : "Must be minimum 6 characters"}
                         </FormFeedback>
-                        <Label>Email</Label>
-                        <Input type="email"
+                        <Label style={labelstyle}>Email</Label><br/>
+                        <Input style={inputstyle} type="email"
                             value={email}
                             autoFocus
                             {...(email.length > 5
@@ -188,8 +228,8 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
                                     : "That's a solid email, friend"
                                 : ""}
                         </FormFeedback>
-                        <Label>Password</Label>
-                        <Input type="password" value={password} onChange={handlePassword}
+                        <Label style={labelstyle}>Password</Label><br/>
+                        <Input style={inputstyle} type="password" value={password} onChange={handlePassword}
                             {
                             ...password.length > 0
                                 ? passwordIsInvalid()
@@ -203,8 +243,8 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
                             : { valid: true }}>
                             {passwordIsInvalid() ? passwordIsInvalid() : ''}
                         </FormFeedback>
-                        <Label>Retype Password</Label>
-                        <Input type="password" value={verifyPassword} onChange={handleVerifyPassword}
+                        <Label style={labelstyle}>Retype Password</Label><br/>
+                        <Input style={inputstyle} type="password" value={verifyPassword} onChange={handleVerifyPassword}
                             {
                             ...(verifyPassword.length > 8
                                 ? verifyPasswordIsInvalid()
@@ -227,12 +267,13 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
                                 : ""}
                         </FormFeedback>
                     </FormGroup>
+                    <Button style={signupbuttonstyle} color="primary" disabled={isDisabled()} onClick={signUp} >Sign Up</Button><br/>
+                    <p style={{marginTop:'35px'}}>or</p>
+                    <Button style={signupbuttonstyle} color="primary" disabled={isDisabled()} onClick={signUp} >Sign Up</Button>
                 </ModalBody>
-                <ModalFooter>
-                    Already a member?
-                        <Button color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Log In</Button>
-                    <Button color="primary" disabled={isDisabled()} onClick={signUp} >Sign Up</Button>{' '}
-
+                <ModalFooter style={footerstyle}>
+                     <p style={{fontSize:'15px'}}>Already a member? <Button style={{fontSize:'15px'}} color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Log In</Button><br/></p>
+                        <Button style={{fontSize:'15px'}}>T&CS</Button>
                 </ModalFooter>
             </Modal>
         </>
