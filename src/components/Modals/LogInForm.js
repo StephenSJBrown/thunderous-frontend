@@ -1,14 +1,12 @@
 import React from 'react'
-import { Button,Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback, FormGroup, Label, Input } from 'reactstrap'
+import { Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback, FormGroup, Label, Input } from 'reactstrap'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
 import Logo from '../../icons/RecycloLogo.png'
 
-
-
-
+import Button from '../../components/Button'
 
 
 const headerstyle={
@@ -43,17 +41,6 @@ const buttondivstyle={
     textAlign: 'center'
 }
 
-const buttonstyle={
-    borderRadius: '44px', 
-    border: 'none',
-    width: '332px',
-    height: '48px',
-    backgroundColor: '#B0E6CE',
-    marginTop: '10px',
-    fontSize: '20px',
-    fontFamily: '"Dosis", sans-serif',
-    color: '#494949'
-}
 
 const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, password, setPassword, setLoggedIn }) => {
 
@@ -124,14 +111,14 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
                 </FormGroup>
 
                 <div style={buttondivstyle}>
-                    <Button style={buttonstyle} color="link" onClick={logIn} disabled={isDisabled()}>Log In</Button><br/>
+                    <Button color="link" onClick={logIn} disabled={isDisabled()}>Log In</Button><br/>
                     <p style={{ marginTop:'35px'}}>or</p><br/>    
-                    <Button style={buttonstyle} color="link" onClick={logIn} disabled={isDisabled()}>Log in with Google</Button>            
+                    <Button color="link" onClick={logIn} disabled={isDisabled()}>Log in with Google</Button>            
                 </div>
 
             </ModalBody>
             <ModalFooter style={footerstyle}>
-                <p>Don't have an account? <Button color="link" onClick={() => setIsLogInForm(!isLoginForm)}>Sign Up</Button></p><br/>
+                <p>Don't have an account? <span onClick={() => setIsLogInForm(!isLoginForm)}>Sign Up</span></p><br/>
                 <Button>T&CS</Button>
             </ModalFooter>
         </Modal>

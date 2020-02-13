@@ -17,7 +17,7 @@ const Weigh = () => {
     const interval = setInterval(() => {
       axios({
         method: "GET",
-        url: `http://localhost:5000/api/deposits/${deposit_id}`
+        url: `http://localhost:5000/api/deposits/show/${deposit_id}`
       })
         .then(response => {
             console.log(response.data);

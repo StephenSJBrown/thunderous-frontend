@@ -38,6 +38,7 @@ const HomePage = () => {
     border: 'none',
     fontSize: '25px',
     fontFamily: '"Dosis", sans-serif',
+    cursor:'pointer'
   }
 
 

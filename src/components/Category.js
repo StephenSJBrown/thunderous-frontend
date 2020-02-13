@@ -15,7 +15,8 @@ const buttonStyle={
   padding:'0px',
   fontFamily: '"Dosis", sans-serif',
   fontSize:'19px',
-  color:'#494949'
+  color:'#494949',
+  cursor:'pointer'
 }
 
 const Category = ({ name }) => {

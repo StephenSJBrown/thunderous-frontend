@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 
+import Button from '../../components/Button'
+
 const Result = () => {
   const history = useHistory();
   const { state: dataFromPreviousPage = 0 } = useLocation();
@@ -18,7 +20,7 @@ const Result = () => {
       <h3>and recieved</h3>
       <h2>{points} points</h2>
       <Link to="/coupons">
-        <p>See coupons</p>
+        <Button>See coupons</Button>
       </Link>
     </>
   );

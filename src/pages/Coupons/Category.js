@@ -15,60 +15,10 @@ import travel from "../../icons/plane.png"
 import insurance from "../../icons/umbrella.png"
 
 const Category = () => {
-  let { category } = useParams();
+  let { category } = useParams()
 
-  const [stores, setStores] = useState([
-    {
-      id: "1",
-      storename: "mcdonalds",
-      logo: "someurl",
-      coupons: [
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McJabbit Meal",
-          deal: 55,
-          points: 550
-        }
-      ]
-    },
-    {
-      storename: "mcdonalds",
-      logo: "someurl",
-      coupons: [
-        {
-          category: "food",
-          couponname: "McRabbit Meal",
-          deal: 25,
-          points: 250
-        },
-        {
-          category: "food",
-          couponname: "McJabbit Meal",
-          deal: 55,
-          points: 550
-        }
-      ]
-    }
-  ]);
+  const [stores, setStores] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  // Api to pull all the coupons and respective stores for their category, utilising the {category} passed in, and setStores to result
-  // {'store-name':'mcdonalds',
-  // 'store-logo':'someurl',
-  // 'coupons':[{'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250},
-  // {'category':'',"coupon-name":'McRabbit Meal', 'coupon-deal':25, 'coupon-points':250}]
 
   useEffect(() => {
     axios
