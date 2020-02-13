@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
+import Page from '../../components/Page'
 import Coupon from "../../components/Coupon";
 
 const Store = () => {
@@ -25,7 +26,7 @@ const Store = () => {
   }, []);
 
   return (
-    <>
+    <Page>
       <h1>Store {store.toUpperCase()}</h1>
       {coupons.map(coupon => (
         <>
@@ -39,7 +40,7 @@ const Store = () => {
 
         </>
       ))}
-    </>
+    </Page>
   );
 };
 

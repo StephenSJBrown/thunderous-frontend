@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-import Header from "../../components/Header";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import Coupon from "../../components/Coupon";
 import Store from "../../components/Store";
 import SeeAll from "../../components/SeeAll";
+
 import food from "../../icons/food.png"
 import clothing from "../../icons/clothing.png"
 import hotels from "../../icons/hotel.png"
@@ -46,7 +46,6 @@ const Category = () => {
 
   return (
     <>
-      <Header />
       {/* <h1>{category.toUpperCase()}</h1> */}
       <div style={{textAlign:'center'}}>
         <img src={imageSwitch[category.toLowerCase()]} />

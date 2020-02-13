@@ -1,14 +1,9 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import styled from "styled-components";
 
-const Header = ({name}) => {
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-    return (
-        <>
-            <img src={name}/>
-        </>
-    )
-
-}
-
-export default Header
+export default Header;

@@ -4,6 +4,8 @@ import { useHistory, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+import Page from '../../components/Page'
+
 const Weigh = () => {
   const { state: dataFromPreviousPage = 0 } = useLocation();
   const {deposit_id, centre_name} = dataFromPreviousPage
@@ -63,11 +65,11 @@ const Weigh = () => {
   }, []);
 
   return (
-    <>
+    <Page>
       <h2>You are at</h2>
       <h3>{centre_name}</h3>
       <h2>Waiting for trash...</h2>
-    </>
+    </Page>
   );
 };
 
