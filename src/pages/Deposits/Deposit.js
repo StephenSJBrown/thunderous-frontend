@@ -38,10 +38,9 @@ const Deposit = ( setCentreObject ) => {
                     pauseOnHover: true,
                     draggable: true,
                 });
-                setCentreObject(response.data.centre)
                 history.push('/deposit/weigh', {
-                  centre: response.data.centre,
-                  a: 1,
+                  deposit_id: response.data.id,
+                  centre_name: response.data.centre.name
                 })
             })
             .catch(error => {
@@ -81,7 +80,6 @@ const Deposit = ( setCentreObject ) => {
       />
       <h3>Scan the QR code at the centre</h3>
       <p>{result}</p>
-      <Link to="/deposit/weigh">Weigh</Link>
     </div>
   );
 };

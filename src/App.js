@@ -39,7 +39,7 @@ function App() {
       <Route path="/profile" component={Profile} />
       <Route path="/centres" component={Centres} />
 
-      <Route exact path="/deposit/" component={Deposit} setCentreObject={setCentreObject}/>
+      <Route exact path="/deposit/" component={Deposit}/>
       <Route exact path="/deposit/weigh" component={Weigh}/>
       <Route path="/deposit/result" component={Result} />
 

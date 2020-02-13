@@ -1,62 +1,74 @@
-import React, {useEffect} from 'react'
-import {useHistory, useLocation, Link} from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
-import axios from 'axios'
-import {toast } from 'react-toastify'
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Weigh = () => {
-    const { state: dataFromPreviousPage = 'default value' } = useLocation()
+  const { state: dataFromPreviousPage = 0 } = useLocation();
+  const {deposit_id, centre_name} = dataFromPreviousPage
+  const history = useHistory();
 
-    // location: {
-    //     pathname: '/weight',
-    //     state: {
-    //         centre: '..'
-    //     }
-    // }
+  if (dataFromPreviousPage == 0) {
+    history.push('/')
+  }
 
-    
-    // check if weight of new deposit has changed
-
-// LIREN'S NOTE, SET INTERVAL
-
-    useEffect(() => {
-        axios({
-            method: 'POST',
-            url: `http://localhost:5000/api/deposits/show/${deposit}`,
-        })
-            .then(response => {
-                console.log(response)
-                toast.success(`Found the deposit`, {
-                    position: "top-left",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
+  useEffect(() => {
+    const interval = setInterval(() => {
+      axios({
+        method: "GET",
+        url: `http://localhost:5000/api/deposits/${deposit_id}`
+      })
+        .then(response => {
+            console.log(response.data);
+            if (response.data.weight === 0) {
+                toast.info(`Found the deposit, same weight tho`, {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
                 });
-                // then
-            })
-            .catch(error => {
-                console.error(`Error: ${error}`) // so that we know what went wrong if the request failed
-                toast.error(`Something went wrong`, {
-                    position: "top-left",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                    pauseOnHover: true,
-                    draggable: true,
+            } else {
+                clearInterval(interval);
+                toast.success(`Deposit has a new weight`, {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+                });
+                history.push("/deposit/result", {
+                    weight: response.data.weight, 
+                    points: response.data.points
                 });
             }
-            )
-      }, []);
+        })
+        .catch(error => {
+          console.error(`Error: ${error}`); // so that we know what went wrong if the request failed
+          toast.error(`Something went wrong, ${error}`, {
+            position: "top-left",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true
+          });
+        });
+    }, 5000);
 
+    return () => clearInterval(interval);
+  }, []);
 
-    return <>
-        <h2>You are at</h2>
-        <h3>{name}</h3>
-        <h2>Waiting for trash...</h2>
-        <Link to="/deposit/result">Result</Link>
+  return (
+    <>
+      <h2>You are at</h2>
+      <h3>{centre_name}</h3>
+      <h2>Waiting for trash...</h2>
     </>
-}
+  );
+};
 
-export default Weigh
+export default Weigh;
