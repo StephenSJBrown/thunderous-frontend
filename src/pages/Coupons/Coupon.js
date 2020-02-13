@@ -12,6 +12,8 @@ const Coupon = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [coupon, setCoupon] = useState();
+  const [bought, setBought] = useState(false);
+  const [purchaseID, setPurchaseID] = useState(false);
   const user = localStorage.getItem("jwt");
 
   useEffect(() => {
@@ -60,8 +62,35 @@ const Coupon = () => {
       }
       )
   }
-
-
+  const RedeemCoupon = (purchaseID) => {
+    axios({
+      method: 'POST',
+      url: `http://localhost:5000/api/purchases/update/${purchaseID}`,
+  })
+      .then(response => {
+          console.log(response)
+          toast.success(`Coupon purchased`, {
+              position: "top-left",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+          });
+      })
+      .catch(error => {
+          console.error(error)
+          toast.error(`Unable to purchase coupon, ${error}`, {
+              position: "top-left",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+          });
+      }
+      )
+  }
 
   return (
     <>
@@ -74,7 +103,10 @@ const Coupon = () => {
           <h3>Expires: {moment(coupon.expiration).format('Do MMMM YYYY')} </h3>
           <p>{coupon.description}</p>
           <h3>{coupon.points}</h3>
-          <button onClick={BuyCoupon}></button>
+          { bought
+          ? <button onClick={RedeemCoupon}>Redeem Coupon</button>
+          : <button onClick={BuyCoupon}>Buy Coupon</button>
+          }
         </>
       )}
     </>
