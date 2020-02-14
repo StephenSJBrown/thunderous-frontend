@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 
 import Page from '../../components/Page'
 
+import weightgreen from '../../icons/weightgreen.svg'
+
 const Weigh = () => {
   const { state: dataFromPreviousPage = 0 } = useLocation();
   const {deposit_id, centre_name} = dataFromPreviousPage
@@ -43,6 +45,7 @@ const Weigh = () => {
                 draggable: true
                 });
                 history.push("/deposit/result", {
+                    centre_name: centre_name,
                     weight: response.data.weight, 
                     points: response.data.points
                 });
@@ -66,8 +69,9 @@ const Weigh = () => {
 
   return (
     <Page>
+      <img src={weightgreen}></img>
       <h2>You are at</h2>
-      <h3>{centre_name}</h3>
+      <h1>{centre_name}</h1>
       <h2>Waiting for trash...</h2>
     </Page>
   );
