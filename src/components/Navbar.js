@@ -3,8 +3,20 @@ import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 
 import Ting from "./Modals/Modal";
+import usericon from "../icons/usericon.png"
+import applogo from "../icons/screenshotsmall.png"
 
 import { Button } from "reactstrap";
+
+const applogoStyle={
+  // marginTop:'15px',
+  position:'absolute',
+  left:'5px',
+  top:'5px'
+  
+}
+
+
 
 const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
   const [modal, setModal] = useState(false);
@@ -57,11 +69,13 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
   return (
     <>
       <NavBar>
-        <Link to="/"><Linker>Home</Linker></Link>
+        <Link  to="/"><Linker><img style={applogoStyle} src={applogo}/></Linker></Link>
+        {/* <Link  to="/"><Linker><img style={usericonStyle} src={usericon}/></Linker></Link> */}
+        <Link to="/profile"><img src={usericon}/></Link>
+
         {loggedIn ? (
           <>
             <RightNav>
-              <Link to="/profile">My Profile</Link>
               <Linker  onClick={logOut}>
                 Log Out
               </Linker>

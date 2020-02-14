@@ -57,6 +57,7 @@ display: flex;
 align-items: center;
 `;
 
+
   return (
     <Page>
       {/* <h1>{category.toUpperCase()}</h1> */}
