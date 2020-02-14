@@ -9,6 +9,8 @@ import moment from "moment";
 import Page from "../../components/Page";
 import LoadingIndicator from "../../components/LoadingIndicator";
 
+import empty from "../../images/empty.svg";
+
 const MyCoupons = () => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
@@ -71,7 +73,7 @@ const MyCoupons = () => {
       ) : (
         <>
           <h2>My Coupons</h2>
-          {purchases ? (
+          {purchases.length ? (
             <>
               {" "}
               <p>You got coupons</p>{" "}
@@ -90,7 +92,10 @@ const MyCoupons = () => {
               ))}{" "}
             </>
           ) : (
-            <p>Ain't got no coupons</p>
+            <>
+              <p>Ain't got no coupons</p>
+              <img src={empty} />
+            </>
           )}{" "}
         </>
       )}
