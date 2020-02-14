@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 import Ting from "./Modals/Modal";
-import usericon from "../icons/usericon.png"
-import applogo from "../icons/screenshotsmall.png"
+import usericon from "../icons/usericon.png";
+import applogo from "../icons/screenshotsmall.png";
 
 import { Button } from "reactstrap";
 
-const applogoStyle={
+const applogoStyle = {
   // marginTop:'15px',
-  position:'absolute',
-  left:'5px',
-  top:'5px'
-  
-}
-
-
+  position: "absolute",
+  left: "5px",
+  top: "5px"
+};
 
 const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
+  const location = useLocation();
+  console.log(location.pathname);
+
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
@@ -69,16 +69,22 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
   return (
     <>
       <NavBar>
-        <Link  to="/"><Linker><img style={applogoStyle} src={applogo}/></Linker></Link>
-        {/* <Link  to="/"><Linker><img style={usericonStyle} src={usericon}/></Linker></Link> */}
-        <Link to="/profile"><img src={usericon}/></Link>
-
+        {/* if home show profile else show home */}
+        {location.pathname == "/" ? (
+          <Link to="/profile">
+            <img src={usericon} />
+          </Link>
+        ) : (
+          <Link to="/">
+            <Linker>
+              <img style={applogoStyle} src={applogo} />
+            </Linker>
+          </Link>
+        )}
         {loggedIn ? (
           <>
             <RightNav>
-              <Linker  onClick={logOut}>
-                Log Out
-              </Linker>
+              <Linker onClick={logOut}>Log Out</Linker>
             </RightNav>
           </>
         ) : (
