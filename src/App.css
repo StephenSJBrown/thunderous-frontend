@@ -1,21 +1,25 @@
 body {
   font-family: "Dosis", sans-serif;
   background-color: #f7fffb;
+}
+
+h1, h2, h3, p {
   color: #494949;
-  font-weight: 300;
 }
 
 h1 {
   font-size: 72px;
-  margin: 0px;
+  margin: 12px 0px;
 }
 h2 {
   font-size: 36px;
-  margin: 0px;
+  margin: 12px 0px;
+  font-weight: 300;
 }
 h3 {
   font-size: 22;
-  margin: 0px;
+  margin: 12px 0px;
+  font-weight: 300;
 }
 p {
   font-size: 15px;
