@@ -23,15 +23,17 @@ const couponStyle={
   width:'50%',
   margin: '0 0 5vh 0', 
   borderRadius: '50px',
+  height:"19vh",
+  lineHeight : "6vh"
   // backgroundImage:`url(${couponcontainer})`,
   // height: "100px"
 }
 const couponContainerStyle = {
-  backgroundColor: 'green',
+  // backgroundColor: 'green',
   width: '100vw',
   // display: 'flex',
   // flexWrap: 'wrap',
-  backgroundColor:'#F6FFFB',
+  // backgroundColor:'#F6FFFB',
 
 }
 

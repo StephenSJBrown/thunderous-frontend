@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Category from "../../components/Category";
 
 import styled from "styled-components";
+import couponicon from "../../icons/coupongreen.png"
+import Header from "../../components/Header";
 
 const divStyle = {
   display: "flex",
@@ -27,7 +29,7 @@ const Mine = styled.div`
 const Coupons = () => {
   return (
     <>
-      <div>
+      <div> 
         <div style={divStyle}>
           <Category name="food" />
           <Category name="clothing" />
