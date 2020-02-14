@@ -14,6 +14,26 @@ import experience from "../../icons/helicopter.png"
 import travel from "../../icons/plane.png"
 import insurance from "../../icons/umbrella.png"
 
+
+const couponStyle={
+  backgroundColor:'#EAC1B4',
+  width: '30vw',
+  margin: '5vw',
+  borderRadius: '30px'
+}
+const couponContainerStyle = {
+  backgroundColor: 'green',
+  width: '100vw',
+  display: 'flex',
+  flexWrap: 'wrap',
+  backgroundColor:'#F6FFFB'
+}
+
+const storeNameStyle={
+  textAlign:'center',
+  fontFamily: '"Dosis", sans-serif'
+}
+
 const Category = () => {
   let { category } = useParams()
 
@@ -44,6 +64,7 @@ const Category = () => {
 
   }
 
+
   return (
     <>
       {/* <h1>{category.toUpperCase()}</h1> */}
@@ -56,29 +77,31 @@ const Category = () => {
           <>
             {stores.map(store => (
               <div>
-                <h1>{store.name}</h1>
-                <img src={`"${store.logo}.png"`} />
-                {store.coupons.length == 0 ? (
-                  <h2> No coupons </h2>
-                ) : (
-                    <>
-                      {store.coupons.map(coupon => (
-                        <div style={{background: 'red'}}>
-                          <Coupon 
-                            name={coupon.name}
-                            deal={coupon.deal}
-                            points={coupon.points}
-                            id={coupon.id}
-                          />
-                        </div>
-                      ))}
-                    </>
-                  )}
-                {store.coupons.length > 2 ? (
-                  <SeeAll store={store.name} id={store.id} ></SeeAll>
-                ) : (
-                    <></>
-                  )}
+                <h1 style={storeNameStyle}><img src={`"${store.logo}.png"`} /> {store.name}</h1>
+                <div style={ couponContainerStyle }>
+                  
+                  {store.coupons.length == 0 ? (
+                    <h2> No coupons </h2>
+                  ) : (
+                      <>
+                        {store.coupons.map(coupon => (
+                          <div style={couponStyle}>
+                            <Coupon
+                              name={coupon.name}
+                              deal={coupon.deal}
+                              points={coupon.points}
+                              id={coupon.id}
+                            />
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  {store.coupons.length > 2 ? (
+                    <SeeAll store={store.name} id={store.id} ></SeeAll>
+                  ) : (
+                      <></>
+                    )}
+                </div>
               </div>
             ))}
           </>
