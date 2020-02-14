@@ -51,7 +51,7 @@ function App() {
 
       <Route path="/redeem" component={Redeem} />
 
-      {/* <Route path="/mycoupons" component={MyCoupons} /> */}
+      <Route path="/mycoupons" component={MyCoupons} />
     </>
   );
 }
