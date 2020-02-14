@@ -3,8 +3,14 @@ import styled from "styled-components";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
 import Ting from "./Modals/Modal";
+<<<<<<< HEAD
 import usericon from "../icons/usericon.png";
 import applogo from "../icons/screenshotsmall.png";
+=======
+import usericon from "../icons/usericon.png"
+import applogo from "../icons/screenshotsmall.png"
+import logouticon from "../icons/logouticongreen.png"
+>>>>>>> icons updated frontend
 
 import { Button } from "reactstrap";
 
@@ -84,7 +90,14 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
         {loggedIn ? (
           <>
             <RightNav>
+<<<<<<< HEAD
               <Linker onClick={logOut}>Log Out</Linker>
+=======
+              <Linker  onClick={logOut}>
+        
+                <img style={{marginTop:'10px'}} src={logouticon}/>
+              </Linker>
+>>>>>>> icons updated frontend
             </RightNav>
           </>
         ) : (
