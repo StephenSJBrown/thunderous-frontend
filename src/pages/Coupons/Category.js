@@ -13,20 +13,26 @@ import hotels from "../../icons/hotel.png"
 import experience from "../../icons/helicopter.png"
 import travel from "../../icons/plane.png"
 import insurance from "../../icons/umbrella.png"
+import couponcontainer from "../../icons/couponcontainer.png"
 
 
 const couponStyle={
   backgroundColor:'#EAC1B4',
-  width: '30vw',
-  margin: '5vw',
-  borderRadius: '30px'
+  width: '45vw',
+  clipPath: 'polygon(0 0, 100% 0, 87% 50%, 100% 100%, 71% 100%, 30% 100%, 0 100%, 13% 50%)',
+  width:'50%',
+  margin: '0 0 5vh 0', 
+  borderRadius: '50px',
+  // backgroundImage:`url(${couponcontainer})`,
+  // height: "100px"
 }
 const couponContainerStyle = {
   backgroundColor: 'green',
   width: '100vw',
-  display: 'flex',
-  flexWrap: 'wrap',
-  backgroundColor:'#F6FFFB'
+  // display: 'flex',
+  // flexWrap: 'wrap',
+  backgroundColor:'#F6FFFB',
+
 }
 
 const storeNameStyle={
@@ -84,6 +90,8 @@ const Category = () => {
                     <h2> No coupons </h2>
                   ) : (
                       <>
+                      <div style={{ width:"100vw", display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"center"}}>
+
                         {store.coupons.map(coupon => (
                           <div style={couponStyle}>
                             <Coupon
@@ -94,6 +102,7 @@ const Category = () => {
                             />
                           </div>
                         ))}
+                      </div>
                       </>
                     )}
                   {store.coupons.length > 2 ? (
