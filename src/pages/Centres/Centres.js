@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
-import axios from "axios";
 import styled from "styled-components";
 
 import Page from "../../components/Page";
-import LoadingIndicator from "../../components/LoadingIndicator";
 
 import goarrow from "../../icons/goarrow.svg";
 
 const Centres = () => {
-  let key = process.env.REACT_APP_MAP;
+  // const [placeID, setPlaceID] = useState("");
+  // const [name, setName] = useState("");
 
-  const [placeID, setPlaceID] = useState("");
-  const [name, setName] = useState("");
-
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const Centre = styled.div`
     width: 276px;
@@ -40,7 +36,7 @@ const Centres = () => {
         <Flex>
           <h3>1.1km away</h3>
           <a href="#">
-            <img src={goarrow}></img>
+            <img src={goarrow} alt="get directions"></img>
           </a>
         </Flex>
       </Centre>

@@ -90,8 +90,8 @@ const Profile = () => {
         <LoadingIndicator></LoadingIndicator>
       ) : (
         <>
-          <img src={backgroundImage}></img>
-          <img src={profileImage}></img>
+          <img src={backgroundImage} alt="user background"></img>
+          <img src={profileImage} alt="user avatar"></img>
           <h1>User Profile Page</h1>
           <input value={username}></input>
           <input value={email}></input>

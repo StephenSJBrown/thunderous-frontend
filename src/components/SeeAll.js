@@ -8,7 +8,7 @@ const SeeAll = ({ store }) => {
     <>
       <Link to={`/store/${store}`}>
         {/* <h3>See All</h3> */}
-        <img src={SeeMoreArrow}/>
+        <img src={SeeMoreArrow} alt="See All"/>
       </Link>
     </>
   );

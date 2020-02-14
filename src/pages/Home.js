@@ -12,10 +12,6 @@ import DepositIcon from "../icons/weight.svg";
 import CouponIcon from "../icons/coupon.svg";
 
 const HomePage = () => {
-  const divstyle = {
-    textAlign: "center",
-    marginTop: "45px"
-  };
 
   // const BackgroundStyle = {
   // clipPath: 'polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)',
@@ -46,25 +42,25 @@ const HomePage = () => {
   return (
     <>
       <Header>
-        <img src={HomeIcon} />
+        <img alt="" src={HomeIcon}/>
       </Header>
       <br />
       <Page>
         <Link to="/centres">
           <MainButton>
-            <h2>Centres</h2> <img src={CentersIcon} />
+            <h2>Centres</h2> <img alt="" src={CentersIcon} />
           </MainButton>
         </Link>
         <br />
         <Link to="/deposit">
           <MainButton>
-            <h2>Deposit</h2> <img src={DepositIcon} />
+            <h2>Deposit</h2> <img alt="" src={DepositIcon} />
           </MainButton>
         </Link>
         <br />
         <Link to="/coupons">
           <MainButton>
-            <h2>Coupons</h2> <img src={CouponIcon} />
+            <h2>Coupons</h2> <img alt="" src={CouponIcon} />
           </MainButton>
         </Link>
         <br />

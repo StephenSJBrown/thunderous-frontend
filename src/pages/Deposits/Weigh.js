@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, useLocation, Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ const Weigh = () => {
   const {deposit_id, centre_name} = dataFromPreviousPage
   const history = useHistory();
 
-  if (dataFromPreviousPage == 0) {
+  if (dataFromPreviousPage === 0) {
     history.push('/')
   }
 
@@ -69,7 +69,7 @@ const Weigh = () => {
 
   return (
     <Page>
-      <img src={weightgreen}></img>
+      <img src={weightgreen} alt=""></img>
       <h2>You are at</h2>
       <h1>{centre_name}</h1>
       <h2>Waiting for trash...</h2>

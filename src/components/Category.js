@@ -7,7 +7,6 @@ import hotels from "../icons/hotels.svg";
 import experience from "../icons/experience.svg";
 import travel from "../icons/travel.svg";
 import insurance from "../icons/insurance.svg";
-import { findByLabelText } from "@testing-library/react";
 
 const buttonStyle = {
   width: " 156px",
@@ -38,19 +37,12 @@ const imageSwitch = {
   insurance: insurance
 };
 
-// return (
-//   <>
-//     {/* <h1>{category.toUpperCase()}</h1> */}
-//     <div style={{textAlign:'center'}}>
-//       <img src={imageSwitch[category.toLowerCase()]} />
-//     </div>
-
 const Category = ({ name }) => {
   return (
     <Link to={`coupons/${name}`}>
       <div className="category">
         <button style={buttonStyle}>
-          <img src={imageSwitch[name]} />
+          <img src={imageSwitch[name]} alt=""/>
           <h3>
             {name.charAt(0).toUpperCase()}
             {name.substr(1)}

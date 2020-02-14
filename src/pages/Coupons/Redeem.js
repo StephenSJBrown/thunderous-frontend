@@ -48,7 +48,7 @@ align-items: center;
     <>
       <Redeem>
       <h2>name</h2>
-      <img src={Centre3QR}></img>
+      <img src={Centre3QR} alt="coupon qr code"></img>
       <Code>{'code'.toUpperCase()}</Code>
       <p>description</p>
       <p>status</p>

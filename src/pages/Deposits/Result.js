@@ -17,7 +17,7 @@ const Result = () => {
   const { state: dataFromPreviousPage = 0 } = useLocation();
   const { weight, points, centre_name } = dataFromPreviousPage;
 
-  if (dataFromPreviousPage == 0) {
+  if (dataFromPreviousPage === 0) {
     history.push("/");
   }
 
@@ -38,10 +38,10 @@ const Result = () => {
 
   return (
     <Page>
-      <img src={weightgreen} />
+      <img src={weightgreen} alt=""/>
       <Flex>
         <h2>{centre_name}</h2>{"  "}
-        <Icon src={locationgreen}></Icon>
+        <Icon src={locationgreen} alt=""></Icon>
       </Flex>
       <Spacer/>
       <h2>You deposited</h2>
@@ -49,13 +49,13 @@ const Result = () => {
       <Flex>
       <h2>{weight}</h2>
       <h2>kg</h2>
-      <Icon src={weightsmall}></Icon>
+      <Icon src={weightsmall} alt=""></Icon>
       </Flex>
       <Spacer/>
       <h3>and recieved</h3>
       <Circle inputColor="#B0E6CE">
         <H1>{points}</H1>
-        <img src={coins}></img>
+        <img src={coins} alt=""></img>
       </Circle>{" "}
       <h2>points</h2>
       <Link to="/coupons">

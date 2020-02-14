@@ -92,7 +92,7 @@ const Coupon = () => {
           pauseOnHover: true,
           draggable: true
         });
-        const { coupon, user, status, qr_string } = response.data;
+        const { coupon, status, qr_string } = response.data;
         history.push("/redeem", {
           name: coupon.name,
           code: qr_string,

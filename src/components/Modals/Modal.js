@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import LogInForm from './LogInForm'
 import SignUpForm from './SignUpForm'
-import { ModalBody, Modal } from 'reactstrap'
+import { ModalBody } from 'reactstrap'
 
 
 
