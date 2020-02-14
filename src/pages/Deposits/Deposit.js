@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import QrReader from "react-qr-scanner";
@@ -11,7 +11,6 @@ const Deposit = ( setCentreObject ) => {
 
   const delay = 1000;
   const [result, setResult] = useState("");
-  const [centreID, setCentreID] = useState(0);
 
   const handleScan = link => {
     if (link) {
@@ -19,9 +18,6 @@ const Deposit = ( setCentreObject ) => {
         console.log('link', link)
         const user = localStorage.getItem("jwt");
         setResult("TEST: That's the right QR code");
-        setCentreID(
-          link.replace("http://localhost:5000/api/deposits/create/", "")
-        );
 
         axios({
             method: 'POST',

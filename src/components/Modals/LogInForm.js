@@ -1,9 +1,7 @@
 import React from 'react'
 import { Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback, FormGroup, Label, Input } from 'reactstrap'
-import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import styled from 'styled-components'
 import Logo from '../../icons/RecycloLogo.png'
 
 import Button from '../../components/Button'
@@ -43,8 +41,6 @@ const buttondivstyle={
 
 
 const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, password, setPassword, setLoggedIn }) => {
-
-    const history = useHistory()
 
     const handleInput = e => {
         setText(e.target.value)
@@ -99,7 +95,7 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
 
     return (
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader style={headerstyle} toggle={toggle}>Log In <img src={Logo}/></ModalHeader>
+            <ModalHeader style={headerstyle} toggle={toggle}>Log In <img alt="" src={Logo}/></ModalHeader>
             <ModalBody>
                 <FormGroup style={formstyle}>
                     <Label style={labelstyle}>Username</Label><br/>

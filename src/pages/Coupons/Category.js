@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import styled from "styled-components";
 
 import LoadingIndicator from "../../components/LoadingIndicator";
 import Coupon from "../../components/Coupon";
-import Store from "../../components/Store";
 import Page from "../../components/Page";
 import SeeAll from "../../components/SeeAll";
 
@@ -68,7 +67,7 @@ const Category = () => {
     <Page>
       {/* <h1>{category.toUpperCase()}</h1> */}
       <div style={{ textAlign: "center" }}>
-        <img src={imageSwitch[category.toLowerCase()]} />
+        <img alt={category} src={imageSwitch[category.toLowerCase()]} />
       </div>
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
@@ -83,7 +82,7 @@ const Category = () => {
                   {store.name.substr(1)}
                 </h2>
               </Top>
-              {store.coupons.length == 0 ? (
+              {store.coupons.length === 0 ? (
                 <h2> No coupons </h2>
               ) : (
                 <Flex>

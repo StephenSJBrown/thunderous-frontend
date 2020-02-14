@@ -81,7 +81,7 @@ const MyCoupons = () => {
                 <Coupon>
                   <Store>
                     <h2>{purchase.coupon.store.name}</h2>
-                    <img src={purchase.coupon.store.logo}></img>
+                    <img src={purchase.coupon.store.logo} alt=""></img>
                   </Store>
                   <h3>{purchase.coupon.name}</h3>
                   <p>
@@ -94,7 +94,7 @@ const MyCoupons = () => {
           ) : (
             <>
               <p>Ain't got no coupons</p>
-              <img src={empty} />
+              <img alt="" src={empty} />
             </>
           )}{" "}
         </>

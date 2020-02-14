@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useState} from "react";
+import { Route} from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.min.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,7 +22,6 @@ import Deposit from "./pages/Deposits/Deposit"
 import Weigh from "./pages/Deposits/Weigh"
 import Result from "./pages/Deposits/Result"
 
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {

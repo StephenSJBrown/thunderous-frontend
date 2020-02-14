@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import styled from "styled-components";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
@@ -11,8 +11,6 @@ import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
 import logouticon from "../icons/logouticongreen.png"
 >>>>>>> icons updated frontend
-
-import { Button } from "reactstrap";
 
 const applogoStyle = {
   // marginTop:'15px',
@@ -76,14 +74,14 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
     <>
       <NavBar>
         {/* if home show profile else show home */}
-        {location.pathname == "/" ? (
+        {location.pathname === "/" ? (
           <Link to="/profile">
-            <img src={usericon} />
+            <img src={usericon} alt="" />
           </Link>
         ) : (
           <Link to="/">
             <Linker>
-              <img style={applogoStyle} src={applogo} />
+              <img style={applogoStyle} src={applogo} alt="Home" />
             </Linker>
           </Link>
         )}

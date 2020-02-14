@@ -169,7 +169,7 @@ const SignUpForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText,
     return (
         <>
             <Modal style={modalstyle} isOpen={modal} toggle={toggle}>
-                <ModalHeader style={headerstyle} toggle={toggle}>Sign Up <img src={Logo}/></ModalHeader>
+                <ModalHeader style={headerstyle} toggle={toggle}>Sign Up <img src={Logo} alt=""/></ModalHeader>
                 <ModalBody>
                     <FormGroup>
                         <Label style={labelstyle} >Username</Label><br/>
