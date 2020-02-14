@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Header from '../components/Header'
+import styled from "styled-components";
 
-import HomeIcon from "../icons/homeicon.png";
-import CentersIcon from "../icons/locationicon.png";
-import DepositIcon from "../icons/weighticon.png";
-import CouponIcon from "../icons/coupons.png";
+import Header from "../components/Header";
+import Page from "../components/Page";
+
+import HomeIcon from "../icons/home.svg";
+import CentersIcon from "../icons/location.svg";
+import DepositIcon from "../icons/weight.svg";
+import CouponIcon from "../icons/coupon.svg";
 
 const HomePage = () => {
-
   const divstyle = {
     textAlign: "center",
     marginTop: "45px"
@@ -26,17 +28,20 @@ const HomePage = () => {
   // left: '0'
   // }
 
-  const MainButtonStyle = {
-    width: "251px",
-    height: "92px",
-    borderRadius: "30px",
-    backgroundColor: "#EAC1B4",
-    marginTop: "40px",
-    border: "none",
-    fontSize: "25px",
-    fontFamily: '"Dosis", sans-serif',
-    cursor: "pointer"
-  };
+  const MainButton = styled.div`
+    width: 251px;
+    height: 92px;
+    border-radius: 30px;
+    background-color: #eac1b4;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    box-sizing: border-box;
+  `;
 
   return (
     <>
@@ -44,26 +49,26 @@ const HomePage = () => {
         <img src={HomeIcon} />
       </Header>
       <br />
-      <div style={divstyle}>
+      <Page>
         <Link to="/centres">
-          <button style={MainButtonStyle}>
-            Centres <img src={CentersIcon} />
-          </button>
+          <MainButton>
+            <h2>Centres</h2> <img src={CentersIcon} />
+          </MainButton>
         </Link>
         <br />
         <Link to="/deposit">
-          <button style={MainButtonStyle}>
-            Deposit <img src={DepositIcon} />
-          </button>
+          <MainButton>
+            <h2>Deposit</h2> <img src={DepositIcon} />
+          </MainButton>
         </Link>
         <br />
         <Link to="/coupons">
-          <button style={MainButtonStyle}>
-            Coupons <img src={CouponIcon} />
-          </button>
+          <MainButton>
+            <h2>Coupons</h2> <img src={CouponIcon} />
+          </MainButton>
         </Link>
         <br />
-      </div>
+      </Page>
       {/* <div style={BackgroundStyle}></div> */}
     </>
   );
