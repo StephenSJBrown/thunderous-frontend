@@ -12,6 +12,11 @@ const divStyle = {
   marginTop: "60px"
 };
 
+const iconStyle={
+  textAlign:'center',
+  marginTop:'20px '
+}
+
 const Mine = styled.div`
   background: #eac1b4;
   border-radius: 10px;
@@ -28,6 +33,9 @@ const Coupons = () => {
   return (
     <>
       <div> 
+        <div style={iconStyle}>
+          <img src={couponicon}/>
+        </div>
         <div style={divStyle}>
           <Category name="food" />
           <Category name="clothing" />

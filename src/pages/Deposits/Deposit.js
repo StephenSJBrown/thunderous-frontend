@@ -4,6 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import QrReader from "react-qr-scanner";
 import Page from '../../components/Page'
+import depositicon from '../../icons/weighticongreen.png'
 
 const Deposit = ( setCentreObject ) => {
   const history = useHistory()
@@ -69,6 +70,9 @@ const Deposit = ( setCentreObject ) => {
 
   return (
     <Page>
+      <div style={{marginTop:'20px'}}>
+        <img src={depositicon}/>
+      </div>
       <QrReader
         delay={delay}
         style={previewStyle}

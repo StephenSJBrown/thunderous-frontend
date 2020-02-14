@@ -29,7 +29,10 @@ const Centres = () => {
 
   return (
     <Page>
-      <h1>Centres</h1>
+      {/* <h1>Centres</h1> */}
+      <div style={{marginTop:'20px'}}>
+        <img src={centreicon}/>
+      </div>
       <p>Your nearest recycling centre is: </p>
       <Centre>
         <h3>1. Super Centre Subang</h3>
