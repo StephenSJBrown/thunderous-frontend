@@ -45,7 +45,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Header>
+      <Header style={{marginTop:'20px'}}>
         <img src={HomeIcon} />
       </Header>
       <br />
