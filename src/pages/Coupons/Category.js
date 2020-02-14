@@ -7,7 +7,7 @@ import styled from "styled-components";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import Coupon from "../../components/Coupon";
 import Store from "../../components/Store";
-import Page from '../../components/Page'
+import Page from "../../components/Page";
 import SeeAll from "../../components/SeeAll";
 
 import food from "../../icons/food.svg";
@@ -52,11 +52,17 @@ const Category = () => {
     object-fit: contain;
   `;
 
-const Top = styled.div`
-display: flex;
-align-items: center;
-`;
+  const Top = styled.div`
+    display: flex;
+    align-items: center;
+  `;
 
+  const Flex = styled.div`
+    display: flex;
+    width: 60%;
+    max-width: 500px;
+    align-items: center;
+  `;
 
   return (
     <Page>
@@ -70,19 +76,19 @@ align-items: center;
         <>
           {stores.map(store => (
             <>
-            <Top>
-              <Logo src={store.logo} />
-              <h2>
-                {store.name.charAt(0).toUpperCase()}
-                {store.name.substr(1)}
-              </h2>
+              <Top>
+                <Logo src={store.logo} />
+                <h2>
+                  {store.name.charAt(0).toUpperCase()}
+                  {store.name.substr(1)}
+                </h2>
               </Top>
               {store.coupons.length == 0 ? (
                 <h2> No coupons </h2>
               ) : (
-                <>
+                <Flex>
                   {store.coupons.map(coupon => (
-                    <div style={{ background: "red" }}>
+                    <div>
                       <Coupon
                         name={coupon.name}
                         deal={coupon.deal}
@@ -91,12 +97,12 @@ align-items: center;
                       />
                     </div>
                   ))}
-                </>
-              )}
               {store.coupons.length > 2 ? (
                 <SeeAll store={store.name} id={store.id}></SeeAll>
               ) : (
                 <></>
+              )}
+                </Flex>
               )}
             </>
           ))}
