@@ -51,6 +51,7 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 30px;
+    background-color: transparent;
   `;
 
   const RightNav = styled.div`

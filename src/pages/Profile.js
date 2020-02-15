@@ -7,6 +7,8 @@ import Button from "../components/Button";
 import Page from "../components/Page";
 import LoadingIndicator from "../components/LoadingIndicator";
 
+import { Flex, Flexend, SpaceAround, BoxShadowInput, Paragraph} from '../styles/Profile'
+
 const Profile = () => {
   const id = localStorage.getItem("jwt");
 
@@ -18,6 +20,38 @@ const Profile = () => {
   const [contact, setContact] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [backgroundImage, setBackgroundImage] = useState("");
+
+  const BackgroundImage = styled.div`
+background: #a49792;
+background: -moz-linear-gradient(
+  left,
+  #a49792 0%,
+  #cbc0b7 0%,
+  #74756d 100%
+);
+background: -webkit-linear-gradient(
+  left,
+  #a49792 0%,
+  #cbc0b7 0%,
+  #74756d 100%
+);
+background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
+height: 25vh;
+width: 100vw;
+background-image: ${backgroundImage};
+/* margin-right: none; */
+`;
+
+const ProfileImage = styled.div`
+border-radius: 100px;
+border-width: 3em;
+/* border: 2px solid; */
+/* border-color: black; */
+background-color: #efdecd;
+height: 150px;
+width: 150px;
+background-image: ${profileImage};
+`;
 
   useEffect(() => {
     axios
@@ -57,7 +91,7 @@ const Profile = () => {
     setIsLoading(true);
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/users/c${id}`,
+      url: `http://localhost:5000/api/users/${id}`,
       data: {
         username,
         email,
@@ -90,68 +124,21 @@ const Profile = () => {
         setIsLoading(false);
       });
   };
-  const BackgroundImage = styled.div`
-    background: #a49792;
-    background: -moz-linear-gradient(
-      left,
-      #a49792 0%,
-      #cbc0b7 0%,
-      #74756d 100%
-    );
-    background: -webkit-linear-gradient(
-      left,
-      #a49792 0%,
-      #cbc0b7 0%,
-      #74756d 100%
-    );
-    background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
-    height: 25vh;
-    width: 100vw;
-    background-image: ${backgroundImage};
-    /* margin-right: none; */
-  `;
 
-  const ProfileImage = styled.div`
-    border-radius: 100px;
-    border-width: 3em;
-    /* border: 2px solid; */
-    /* border-color: black; */
-    background-color: #efdecd;
-    height: 150px;
-    width: 150px;
-    background-image: ${profileImage};
-  `;
-  const Flex = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 25vh;
-  `;
-  const SpaceAround = styled.div`
-    height: 42vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  `;
-  const Flexend = styled.div`
-    height: 10vh;
-    display: flex;
-    align-items: flex-end;
-  `;
-  const BoxShadowInput = styled.input`
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid black;
-    background-color: #f7fffb;
-    outline: none;
-    width: 75vw;
-    max-width:332px;
+  const handleUsername = (e) => {
+    setUsername(e.target.value)
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const handleContact = (e) => {
+    setContact(e.target.value)
+  }
 
-  `;
-  const Paragraph = styled.h3`
-    margin: 0px, 0px;
-  `;
+
   return (
     <Page className="page">
       {isLoading ? (
@@ -170,6 +157,7 @@ const Profile = () => {
                 <BoxShadowInput
                   value={username}
                   placeholder=" johnsmith123"
+                  onChange={handleUsername}
                 ></BoxShadowInput>
               </div>
               <div>
@@ -177,6 +165,7 @@ const Profile = () => {
                 <BoxShadowInput
                   value={email}
                   placeholder="john@email.com"
+                  onChange={handleEmail}
                 ></BoxShadowInput>
               </div>
               <div>
@@ -184,6 +173,8 @@ const Profile = () => {
                 <BoxShadowInput
                   value={password}
                   placeholder="Minimum of 8 characters"
+                  onChange={handlePassword}
+                  type="password"
                 ></BoxShadowInput>
               </div>
               <div>
@@ -191,6 +182,8 @@ const Profile = () => {
                 <BoxShadowInput
                   value={contact}
                   placeholder="019-880 8800"
+                  onChange={handleContact}
+                  type="number"
                 ></BoxShadowInput>
               </div>
             </SpaceAround>
