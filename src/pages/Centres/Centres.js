@@ -6,6 +6,8 @@ import Page from "../../components/Page";
 
 import goarrow from "../../icons/goarrow.svg";
 
+import centreicon from '../../icons/location.svg'
+
 const Centres = () => {
   // const [placeID, setPlaceID] = useState("");
   // const [name, setName] = useState("");
