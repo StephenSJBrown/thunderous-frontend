@@ -137,12 +137,11 @@ const Profile = () => {
   `;
 
   return (
-    <>
+    <Page className="page">
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
       ) : (
         <>
-          <Page>
             <BackgroundImage>
               <Flex>
                 <ProfileImage></ProfileImage>
@@ -162,10 +161,9 @@ const Profile = () => {
             <Flexend>
                 <button onClick={handleUpdate}>Update profile</button>
             </Flexend>
-          </Page>
         </>
       )}
-    </>
+    </Page>
   );
 };
 

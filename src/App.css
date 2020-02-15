@@ -33,3 +33,12 @@ a {
   text-decoration: none;
   color: #219653;
 }
+
+.page {
+  padding: 10px 30px 50px 30px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: fixed;
+  width: 100vw;
+}

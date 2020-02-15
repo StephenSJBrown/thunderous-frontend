@@ -69,7 +69,7 @@ const Deposit = ( setCentreObject ) => {
   };
 
   return (
-    <Page>
+    <Page className="page">
       <div style={{marginTop:'20px'}}>
         <img src={depositicon}/>
       </div>

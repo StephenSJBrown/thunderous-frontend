@@ -68,7 +68,7 @@ const Weigh = () => {
   }, []);
 
   return (
-    <Page>
+    <Page className="page">
       <img src={weightgreen} alt=""></img>
       <h2>You are at</h2>
       <h1>{centre_name}</h1>

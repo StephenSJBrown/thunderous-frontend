@@ -5,7 +5,7 @@ import Category from "../../components/Category";
 
 import styled from "styled-components";
 
-import couponicon from '../../icons/coupon.svg'
+import couponicon from '../../icons/coupongreen.svg'
 
 const divStyle = {
   display: "flex",
