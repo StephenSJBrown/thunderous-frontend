@@ -5,7 +5,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import Ting from "./Modals/Modal";
 import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
-import logouticon from "../icons/logouticongreen.png"
+import logouticon from "../icons/logouticongreen.svg"
 
 const applogoStyle = {
   // marginTop:'15px',

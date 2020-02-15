@@ -40,12 +40,11 @@ const HomePage = () => {
   `;
 
   return (
-    <>
+    <Page className="page">
       <Header>
         <img alt="" src={HomeIcon}/>
       </Header>
       <br />
-      <Page>
         <Link to="/centres">
           <MainButton>
             <h2>Centres</h2> <img alt="" src={CentersIcon} />
@@ -64,9 +63,8 @@ const HomePage = () => {
           </MainButton>
         </Link>
         <br />
-      </Page>
       {/* <div style={BackgroundStyle}></div> */}
-    </>
+    </Page>
   );
 };
 

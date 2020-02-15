@@ -64,7 +64,7 @@ const Category = () => {
   `;
 
   return (
-    <Page>
+    <Page className="page">
       {/* <h1>{category.toUpperCase()}</h1> */}
       <div style={{ textAlign: "center" }}>
         <img alt={category} src={imageSwitch[category.toLowerCase()]} />

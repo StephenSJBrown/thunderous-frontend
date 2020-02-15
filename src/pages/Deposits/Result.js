@@ -37,7 +37,7 @@ const Result = () => {
   `
 
   return (
-    <Page>
+    <Page className="page">
       <img src={weightgreen} alt=""/>
       <Flex>
         <h2>{centre_name}</h2>{"  "}

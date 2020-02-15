@@ -6,7 +6,7 @@ import Page from "../../components/Page";
 
 import goarrow from "../../icons/goarrow.svg";
 
-import centreicon from '../../icons/location.svg'
+import centreicon from '../../icons/locationgreen.svg'
 
 const Centres = () => {
   // const [placeID, setPlaceID] = useState("");
@@ -30,7 +30,7 @@ const Centres = () => {
   `;
 
   return (
-    <Page>
+    <Page className="page">
       {/* <h1>Centres</h1> */}
       <div style={{marginTop:'20px'}}>
         <img src={centreicon}/>

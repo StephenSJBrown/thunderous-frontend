@@ -120,7 +120,7 @@ const Coupon = () => {
   `;
 
   return (
-    <Page>
+    <Page className="page">
       {isLoading ? (
         <LoadingIndicator></LoadingIndicator>
       ) : (
