@@ -83,14 +83,10 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
         {loggedIn ? (
           <>
             <RightNav>
-<<<<<<< HEAD
-              <Linker onClick={logOut}>Log Out</Linker>
-=======
               <Linker  onClick={logOut}>
         
                 <img style={{marginTop:'10px'}} src={logouticon}/>
               </Linker>
->>>>>>> icons updated frontend
             </RightNav>
           </>
         ) : (

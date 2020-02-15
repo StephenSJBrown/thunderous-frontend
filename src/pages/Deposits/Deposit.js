@@ -4,7 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import QrReader from "react-qr-scanner";
 import Page from '../../components/Page'
-import depositicon from '../../icons/weighticongreen.png'
+import depositicon from '../../icons/weightgreen.svg'
 
 const Deposit = ( setCentreObject ) => {
   const history = useHistory()
