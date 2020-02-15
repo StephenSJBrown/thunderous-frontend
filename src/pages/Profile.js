@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+import Button from "../components/Button";
 import Page from "../components/Page";
 import LoadingIndicator from "../components/LoadingIndicator";
 
@@ -90,29 +91,32 @@ const Profile = () => {
       });
   };
   const BackgroundImage = styled.div`
-    background: #41ff08;
+    background: #a49792;
     background: -moz-linear-gradient(
       left,
-      #41ff08 0%,
-      #06910e 50%,
-      #1a3c25 100%
+      #a49792 0%,
+      #cbc0b7 0%,
+      #74756d 100%
     );
     background: -webkit-linear-gradient(
       left,
-      #41ff08 0%,
-      #06910e 50%,
-      #1a3c25 100%
+      #a49792 0%,
+      #cbc0b7 0%,
+      #74756d 100%
     );
+    background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
     height: 25vh;
     width: 100vw;
     background-image: ${backgroundImage};
+    /* margin-right: none; */
   `;
 
   const ProfileImage = styled.div`
     border-radius: 100px;
     border-width: 3em;
-    border-color: black;
-    background-color: red;
+    /* border: 2px solid; */
+    /* border-color: black; */
+    background-color: #efdecd;
     height: 150px;
     width: 150px;
     background-image: ${profileImage};
@@ -125,17 +129,29 @@ const Profile = () => {
     height: 25vh;
   `;
   const SpaceAround = styled.div`
-    height: 40vh;
+    height: 42vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   `;
   const Flexend = styled.div`
-    height:10vh;
+    height: 10vh;
     display: flex;
     align-items: flex-end;
   `;
+  const BoxShadowInput = styled.input`
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #f7fffb;
+    outline: none;
+    width: 75vw;
+    max-width:332px;
 
+  `;
+  const Paragraph = styled.h3`
+    margin: 0px, 0px;
+  `;
   return (
     <Page className="page">
       {isLoading ? (
@@ -148,18 +164,38 @@ const Profile = () => {
               </Flex>
             </BackgroundImage>
             <h2>User Profile Page</h2>
-              <SpaceAround>
-                <p>Username</p>
-                <input value={username}></input>
-                <p>Email</p>
-                <input value={email}></input>
-                <p>Password</p>
-                <input value={password}></input>
-                <p>Contact</p>
-                <input value={contact}></input>
-              </SpaceAround>
+            <SpaceAround>
+              <div>
+                <Paragraph>Username</Paragraph>
+                <BoxShadowInput
+                  value={username}
+                  placeholder=" johnsmith123"
+                ></BoxShadowInput>
+              </div>
+              <div>
+                <Paragraph>Email</Paragraph>
+                <BoxShadowInput
+                  value={email}
+                  placeholder="john@email.com"
+                ></BoxShadowInput>
+              </div>
+              <div>
+                <Paragraph>Password</Paragraph>
+                <BoxShadowInput
+                  value={password}
+                  placeholder="Minimum of 8 characters"
+                ></BoxShadowInput>
+              </div>
+              <div>
+                <Paragraph>Contact</Paragraph>
+                <BoxShadowInput
+                  value={contact}
+                  placeholder="019-880 8800"
+                ></BoxShadowInput>
+              </div>
+            </SpaceAround>
             <Flexend>
-                <button onClick={handleUpdate}>Update profile</button>
+              <Button onClick={handleUpdate}>Update profile</Button>
             </Flexend>
         </>
       )}
