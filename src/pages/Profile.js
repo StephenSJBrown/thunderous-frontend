@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import {useHistory} from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -13,6 +14,7 @@ import {
   BoxShadowInput,
   Paragraph
 } from "../styles/Profile";
+import { Link } from "react-router-dom";
 
 const logoutbutton={
   display: 'block',
@@ -164,6 +166,50 @@ background-image: ${profileImage};
     setContact(e.target.value);
   };
 
+<<<<<<< HEAD
+=======
+  const history = useHistory();
+
+  const logOut = () => {
+    localStorage.removeItem("jwt");
+    history.push("/");
+    toast.success(`You've been logged out`, {
+      position: "top-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    });
+  };
+
+  const BackgroundImage = styled.div`
+    background: #a49792;
+    background: -moz-linear-gradient(
+      left,
+      #a49792 0%,
+      #cbc0b7 0%,
+      #74756d 100%
+    );
+    background: -webkit-linear-gradient(
+      left,
+      #a49792 0%,
+      #cbc0b7 0%,
+      #74756d 100%
+    );
+    background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
+    height: 25vh;
+    width: 100vw;
+    background-image: ${backgroundImage};
+    max-width: 332px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 25vh;
+    /* margin-right: none; */
+  `;
+>>>>>>> more front end updates usernames,logout and points on navbar
 
   return (
     <Page className="page">
@@ -216,7 +262,8 @@ background-image: ${profileImage};
           <Flexend>
             <Button onClick={handleUpdate}>Update profile</Button>
           </Flexend>
-            <button style={logoutbutton}>Log out</button>
+            <button onClick={logOut} style={logoutbutton}>Log out</button>
+        
         </>
       )}
     </Page>

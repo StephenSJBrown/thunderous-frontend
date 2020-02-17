@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory,Redirect} from 'react-router-dom'
+import React, { useState,useContext } from "react";
+import { useHistory} from 'react-router-dom'
 
 import { FormFeedback } from "reactstrap";
 import axios from "axios";
@@ -9,7 +9,7 @@ import styled from "styled-components";
 import Page from "../components/Page";
 import Button from "../components/Button";
 import { BoxShadowInput, Paragraph } from "../styles/Profile";
-
+import {UserContext} from "../App"
 import Logo from "../icons/RecycloLogo.png";
 
 const Form = styled.form`
@@ -27,6 +27,7 @@ width: 100%;
 `;
 
 const LogIn = () => {
+  const { setPoints,setUsername } = useContext(UserContext)
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
 
@@ -67,8 +68,11 @@ const LogIn = () => {
           pauseOnHover: true,
           draggable: true
         });
+        setUsername(response.data.user.username)
+        setPoints(response.data.user.points)
         localStorage.setItem("jwt", response.data.user.id);
         history.push("/")
+
       })
       .catch(error => {
         console.error(`Error: ${error}`); // so that we know what went wrong if the request failed
