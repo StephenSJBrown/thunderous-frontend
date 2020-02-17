@@ -43,32 +43,32 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState("");
   const [backgroundImage, setBackgroundImage] = useState("");
   
-const BackgroundImage = styled.div`
-background: #a49792;
-background: -moz-linear-gradient(
-  left,
-  #a49792 0%,
-  #cbc0b7 0%,
-  #74756d 100%
-);
-background: -webkit-linear-gradient(
-  left,
-  #a49792 0%,
-  #cbc0b7 0%,
-  #74756d 100%
-);
-background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
-height: 25vh;
-width: 100vw;
-background-image: ${backgroundImage};
-max-width: 332px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100vw;
-height: 25vh;
-/* margin-right: none; */
-`;
+// const BackgroundImage = styled.div`
+// background: #a49792;
+// background: -moz-linear-gradient(
+//   left,
+//   #a49792 0%,
+//   #cbc0b7 0%,
+//   #74756d 100%
+// );
+// background: -webkit-linear-gradient(
+//   left,
+//   #a49792 0%,
+//   #cbc0b7 0%,
+//   #74756d 100%
+// );
+// background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
+// height: 25vh;
+// width: 100vw;
+// background-image: ${backgroundImage};
+// max-width: 332px;
+// display: flex;
+// align-items: center;
+// justify-content: center;
+// width: 100vw;
+// height: 25vh;
+// /* margin-right: none; */
+// `;
 
 const ProfileImage = styled.div`
 border-radius: 100px;
@@ -166,8 +166,6 @@ background-image: ${profileImage};
     setContact(e.target.value);
   };
 
-<<<<<<< HEAD
-=======
   const history = useHistory();
 
   const logOut = () => {
@@ -209,7 +207,6 @@ background-image: ${profileImage};
     height: 25vh;
     /* margin-right: none; */
   `;
->>>>>>> more front end updates usernames,logout and points on navbar
 
   return (
     <Page className="page">
