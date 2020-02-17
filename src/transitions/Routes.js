@@ -3,6 +3,7 @@ import { Route, withRouter } from "react-router-dom";
 import { AnimatedSwitch } from "./AnimatedSwitch";
 
 import HomePage from '../pages/Home'
+import Landing from '../pages/Landing'
 
 import Profile from "../pages/Profile";
 
@@ -50,6 +51,11 @@ const routes = [
     exact: true,
     component: HomePage,
     path: "/"
+  },
+  {
+    exact: true,
+    component: Landing,
+    path: "/landing"
   },
   {
     component: Profile,

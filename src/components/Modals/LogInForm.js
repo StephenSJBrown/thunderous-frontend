@@ -7,6 +7,11 @@ import Logo from '../../icons/RecycloLogo.png'
 import Button from '../../components/Button'
 
 
+const modalStyle={
+    backgroundColor:'#f7fffb',
+    color:'#494949'
+}
+
 const headerstyle={
     textAlign: 'center',
     fontSize: '40px',
@@ -94,7 +99,7 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
 
 
     return (
-        <Modal isOpen={modal} toggle={toggle}>
+        <Modal style={modalStyle} isOpen={modal} toggle={toggle}>
             <ModalHeader style={headerstyle} toggle={toggle}>Log In <img alt="" src={Logo}/></ModalHeader>
             <ModalBody>
                 <FormGroup style={formstyle}>
@@ -108,14 +113,15 @@ const LogInForm = ({ modal, toggle, isLoginForm, setIsLogInForm, text, setText, 
 
                 <div style={buttondivstyle}>
                     <Button color="link" onClick={logIn} disabled={isDisabled()}>Log In</Button><br/>
-                    <p style={{ marginTop:'35px'}}>or</p><br/>    
+                    <p style={{ marginTop:'20px'}}>or</p><br/>    
                     <Button color="link" onClick={logIn} disabled={isDisabled()}>Log in with Google</Button>            
                 </div>
 
             </ModalBody>
             <ModalFooter style={footerstyle}>
                 <p>Don't have an account? <span onClick={() => setIsLogInForm(!isLoginForm)}>Sign Up</span></p><br/>
-                <Button>T&CS</Button>
+                {/* <Button>T&CS</Button> */}
+                <a href="">T&C's</a>
             </ModalFooter>
         </Modal>
     )
