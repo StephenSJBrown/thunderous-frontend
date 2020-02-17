@@ -7,7 +7,13 @@ import Button from "../components/Button";
 import Page from "../components/Page";
 import LoadingIndicator from "../components/LoadingIndicator";
 
-import { Flex, Flexend, SpaceAround, BoxShadowInput, Paragraph} from '../styles/Profile'
+import {
+  Flex,
+  Flexend,
+  SpaceAround,
+  BoxShadowInput,
+  Paragraph
+} from "../styles/Profile";
 
 const Profile = () => {
   const id = localStorage.getItem("jwt");
@@ -21,37 +27,6 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState("");
   const [backgroundImage, setBackgroundImage] = useState("");
 
-  const BackgroundImage = styled.div`
-background: #a49792;
-background: -moz-linear-gradient(
-  left,
-  #a49792 0%,
-  #cbc0b7 0%,
-  #74756d 100%
-);
-background: -webkit-linear-gradient(
-  left,
-  #a49792 0%,
-  #cbc0b7 0%,
-  #74756d 100%
-);
-background: linear-gradient(to right, #a49792 0%, #cbc0b7 0%, #74756d 100%);
-height: 25vh;
-width: 100vw;
-background-image: ${backgroundImage};
-/* margin-right: none; */
-`;
-
-const ProfileImage = styled.div`
-border-radius: 100px;
-border-width: 3em;
-/* border: 2px solid; */
-/* border-color: black; */
-background-color: #efdecd;
-height: 150px;
-width: 150px;
-background-image: ${profileImage};
-`;
 
   useEffect(() => {
     axios
@@ -125,19 +100,18 @@ background-image: ${profileImage};
       });
   };
 
-  const handleUsername = (e) => {
-    setUsername(e.target.value)
-  }
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
-  const handleContact = (e) => {
-    setContact(e.target.value)
-  }
-
+  const handleUsername = e => {
+    setUsername(e.target.value);
+  };
+  const handleEmail = e => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = e => {
+    setPassword(e.target.value);
+  };
+  const handleContact = e => {
+    setContact(e.target.value);
+  };
 
   const BackgroundImage = styled.div`
     background: #a49792;
@@ -207,51 +181,51 @@ background-image: ${profileImage};
         <LoadingIndicator></LoadingIndicator>
       ) : (
         <>
-            <BackgroundImage>
-              <Flex>
-                <ProfileImage></ProfileImage>
-              </Flex>
-            </BackgroundImage>
-            <h2>User Profile Page</h2>
-            <SpaceAround>
-              <div>
-                <Paragraph>Username</Paragraph>
-                <BoxShadowInput
-                  value={username}
-                  placeholder=" johnsmith123"
-                  onChange={handleUsername}
-                ></BoxShadowInput>
-              </div>
-              <div>
-                <Paragraph>Email</Paragraph>
-                <BoxShadowInput
-                  value={email}
-                  placeholder="john@email.com"
-                  onChange={handleEmail}
-                ></BoxShadowInput>
-              </div>
-              <div>
-                <Paragraph>Password</Paragraph>
-                <BoxShadowInput
-                  value={password}
-                  placeholder="Minimum of 8 characters"
-                  onChange={handlePassword}
-                  type="password"
-                ></BoxShadowInput>
-              </div>
-              <div>
-                <Paragraph>Contact</Paragraph>
-                <BoxShadowInput
-                  value={contact}
-                  placeholder="019-880 8800"
-                  onChange={handleContact}
-                  type="number"
-                ></BoxShadowInput>
-              </div>
-            </SpaceAround>
-            <Flexend>
-              <Button onClick={handleUpdate}>Update profile</Button>
-            </Flexend>
+          <BackgroundImage>
+            <Flex>
+              <ProfileImage></ProfileImage>
+            </Flex>
+          </BackgroundImage>
+          <h2>User Profile Page</h2>
+          <SpaceAround>
+            <div>
+              <Paragraph>Username</Paragraph>
+              <BoxShadowInput
+                value={username}
+                placeholder=" johnsmith123"
+                onChange={handleUsername}
+              ></BoxShadowInput>
+            </div>
+            <div>
+              <Paragraph>Email</Paragraph>
+              <BoxShadowInput
+                value={email}
+                placeholder="john@email.com"
+                onChange={handleEmail}
+              ></BoxShadowInput>
+            </div>
+            <div>
+              <Paragraph>Password</Paragraph>
+              <BoxShadowInput
+                value={password}
+                placeholder="Minimum of 8 characters"
+                onChange={handlePassword}
+                type="password"
+              ></BoxShadowInput>
+            </div>
+            <div>
+              <Paragraph>Contact</Paragraph>
+              <BoxShadowInput
+                value={contact}
+                placeholder="019-880 8800"
+                onChange={handleContact}
+                type="number"
+              ></BoxShadowInput>
+            </div>
+          </SpaceAround>
+          <Flexend>
+            <Button onClick={handleUpdate}>Update profile</Button>
+          </Flexend>
         </>
       )}
     </Page>
