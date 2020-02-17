@@ -14,7 +14,16 @@ import {
   Paragraph
 } from "../styles/Profile";
 
-
+const logoutbutton={
+  width: '332px',
+  height: '48px',
+  border:'none',
+  borderRadius:'44px',
+  backgroundColor:'#EAC1B4',
+  // marginTop:'10px'
+  fontSize:'20px',
+  color:'#494949'
+}
 
 const Profile = () => {
   const id = localStorage.getItem("jwt");
@@ -203,6 +212,7 @@ background-image: ${profileImage};
           <Flexend>
             <Button onClick={handleUpdate}>Update profile</Button>
           </Flexend>
+            <button style={logoutbutton}>Log out</button>
         </>
       )}
     </Page>
