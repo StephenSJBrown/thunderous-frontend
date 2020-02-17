@@ -20,7 +20,7 @@ align-items: center;
 margin: 24px 0;
 `;
 
-const SignUp = ({ toggle, setLoggedIn }) => {
+const SignUp = () => {
   const [delay, setDelay] = useState(null);
   const [usernameValid, setUsernameValid] = useState(false);
   const [text, setText] = useState("");
@@ -107,9 +107,7 @@ const SignUp = ({ toggle, setLoggedIn }) => {
           pauseOnHover: true,
           draggable: true
         });
-        toggle();
         localStorage.setItem("jwt", response.data.new_user.id);
-        setLoggedIn(true);
         useHistory.push("/profile");
       })
       .catch(error => {
