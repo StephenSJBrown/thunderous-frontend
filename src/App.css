@@ -35,10 +35,22 @@ a {
 }
 
 .page {
-  padding: 10px 30px 50px 30px;
+  /* padding: 10px 30px 50px 30px; */
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
   width: 100vw;
+}
+
+.background-gradient{
+  clip-path: polygon(66% 67%, 100% 13%, 100% 100%, 0 100%);
+  background-color: #B0E6CE;
+  background-image: linear-gradient(to bottom right, #B0E6CE, #F7FFFB);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

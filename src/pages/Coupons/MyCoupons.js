@@ -8,7 +8,7 @@ import moment from "moment";
 
 import Page from "../../components/Page";
 import LoadingIndicator from "../../components/LoadingIndicator";
-
+import couponicon from '../../icons/couponicongreen.svg'
 import empty from "../../images/empty.svg";
 
 const MyCoupons = () => {
@@ -72,6 +72,7 @@ const MyCoupons = () => {
         <LoadingIndicator></LoadingIndicator>
       ) : (
         <>
+          <img src={couponicon}/>
           <h2>My Coupons</h2>
           {purchases.length ? (
             <>

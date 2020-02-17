@@ -11,19 +11,20 @@ import CentersIcon from "../icons/location.svg";
 import DepositIcon from "../icons/weight.svg";
 import CouponIcon from "../icons/coupon.svg";
 
+const BackgroundStyle = {
+  clipPath: 'polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)',
+  backgroundColor: '#B0E6CE',
+  backgroundImage: 'linear - gradient(to bottom right, #B0E6CE, #F7FFFB)',
+  height: '100vh',
+  width: '100vw',
+  position: 'fixed',
+  top: '0',
+  left: '0'
+  }
+  
 const HomePage = () => {
-
-  // const BackgroundStyle = {
-  // clipPath: 'polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)',
-  // backgroundColor: '#B0E6CE',
-  // backgroundImage: 'linear - gradient(to bottom right, #B0E6CE, #F7FFFB)',
-  // height: '100vh',z
-  // width: '100vw',
-  // position: 'fixed',
-  // top: '0',
-  // left: '0'
-  // }
-
+  
+    
   const MainButton = styled.div`
     width: 251px;
     height: 92px;
@@ -45,6 +46,7 @@ const HomePage = () => {
         <img alt="" src={HomeIcon}/>
       </Header>
       <br />
+      <div style={{marginTop:'50px'}}>
         <Link to="/centres">
           <MainButton>
             <h2>Centres</h2> <img alt="" src={CentersIcon} />
@@ -63,7 +65,8 @@ const HomePage = () => {
           </MainButton>
         </Link>
         <br />
-      {/* <div style={BackgroundStyle}></div> */}
+      </div>
+      <div className="background-gradient"></div>
     </Page>
   );
 };

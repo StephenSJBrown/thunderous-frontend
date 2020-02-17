@@ -6,7 +6,9 @@ import { toast } from 'react-toastify'
 import Logo from '../../icons/RecycloLogo.png'
 
 const modalstyle={
-    textAlign:'center'
+    textAlign:'center',
+    backgroundColor:'#f7fffb',
+    color:'#494949'
 }
 
 const headerstyle={
