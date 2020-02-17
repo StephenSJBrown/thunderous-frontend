@@ -126,6 +126,7 @@ const Centres = () => {
         } 
       </>
     }
+    <div className="background-gradient"></div>
     </Page>
   );
 };
