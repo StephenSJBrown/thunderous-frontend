@@ -6,6 +6,9 @@ import Ting from "./Modals/Modal";
 import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
 import logouticon from "../icons/logouticongreen.svg"
+// import logouticon from "../icons/logouticongreen.png"
+
+import { Button } from "reactstrap";
 
 const applogoStyle = {
   // marginTop:'15px',

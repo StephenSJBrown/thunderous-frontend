@@ -6,7 +6,8 @@ import { usePosition } from 'use-position';
 import {toast} from 'react-toastify'
 
 import Page from "../../components/Page";
-import LoadingIndicator from '../../components/LoadingIndicator'
+import LoadingIndicator from "../../components/LoadingIndicator";
+import centreicon from "../../icons/locationgreen.svg"
 
 import goarrow from "../../icons/goarrow.svg";
 import centreicon from '../../icons/locationgreen.svg'
