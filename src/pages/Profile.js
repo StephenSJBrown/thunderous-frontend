@@ -132,6 +132,11 @@ const Profile = () => {
     width: 100vw;
     background-image: ${backgroundImage};
     max-width: 332px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 25vh;
     /* margin-right: none; */
   `;
 
@@ -182,9 +187,9 @@ const Profile = () => {
       ) : (
         <>
           <BackgroundImage>
-            <Flex>
+            {/* <Flex> */}
               <ProfileImage></ProfileImage>
-            </Flex>
+            {/* </Flex> */}
           </BackgroundImage>
           <h2>User Profile Page</h2>
           <SpaceAround>
