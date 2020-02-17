@@ -5,10 +5,8 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
 import logouticon from "../icons/logouticongreen.svg"
-// import logouticon from "../icons/logouticongreen.png"
 
 const applogoStyle = {
-  // marginTop:'15px',
   position: "absolute",
   left: "5px",
   top: "5px"
@@ -58,10 +56,9 @@ const NavBar = ({ toast }) => {
     cursor: pointer;
   `;
 
-  return (
-    <>
+  return ( <>
+    { id ? <>
       <NavBar>
-        {/* if home show profile else show home */}
         {location.pathname === "/" ? (
           <Link to="/profile">
             <img src={usericon} alt="" />
@@ -85,7 +82,7 @@ const NavBar = ({ toast }) => {
           <></>
         )}
       </NavBar>
-    </>
+    </> : <></> } </>
   );
 };
 

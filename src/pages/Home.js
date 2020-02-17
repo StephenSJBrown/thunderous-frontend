@@ -3,27 +3,15 @@ import { Link, useHistory } from "react-router-dom";
 
 import styled from "styled-components";
 
-import Landing from './Landing'
+import Landing from "./Landing";
 
 import Header from "../components/Header";
 import Page from "../components/Page";
-import Button from "../components/Button";
 
 import HomeIcon from "../icons/home.svg";
 import CentersIcon from "../icons/location.svg";
 import DepositIcon from "../icons/weight.svg";
 import CouponIcon from "../icons/coupon.svg";
-
-const BackgroundStyle = {
-  clipPath: "polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)",
-  backgroundColor: "#B0E6CE",
-  backgroundImage: "linear - gradient(to bottom right, #B0E6CE, #F7FFFB)",
-  height: "100vh",
-  width: "100vw",
-  position: "fixed",
-  top: "0",
-  left: "0"
-};
 
 const HomePage = () => {
   let id = localStorage.getItem("jwt");
@@ -82,9 +70,7 @@ const HomePage = () => {
           </Page>{" "}
         </>
       ) : (
-        <Page>
-          <Landing/>
-        </Page>
+        <Landing />
       )}
     </>
   );

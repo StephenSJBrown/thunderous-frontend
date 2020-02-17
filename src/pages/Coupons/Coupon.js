@@ -117,6 +117,7 @@ const Coupon = () => {
     width: 100vw;
     max-width: 600px;
     height: 200px;
+    object-fit: cover;
   `;
 
   return (
@@ -126,7 +127,7 @@ const Coupon = () => {
       ) : (
 
         <>
-          <CouponPic></CouponPic>
+          <CouponPic src={coupon.coupon_image}></CouponPic>
 
           <h2>{coupon.name}</h2>
           <Circle inputColor="#EAC1B4">
