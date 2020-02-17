@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import axios from "axios";
 import styled from "styled-components";
@@ -61,9 +61,16 @@ const MyCoupons = () => {
   const Store = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     max-width: 276px;
+  `;
+
+  const Img = styled.img`
+    margin: 6px;
+    height: 36px;
+    width: 36px;
+    object-fit: cover;
+    border-radius: 50%;
   `;
 
   return (
@@ -79,17 +86,29 @@ const MyCoupons = () => {
               {" "}
               <p>You got coupons</p>{" "}
               {purchases.map(purchase => (
-                <Coupon>
-                  <Store>
-                    <h2>{purchase.coupon.store.name}</h2>
-                    <img src={purchase.coupon.store.logo} alt=""></img>
-                  </Store>
-                  <h3>{purchase.coupon.name}</h3>
-                  <p>
-                    Expiry date:{" "}
-                    {moment(purchase.coupon.expiration).format("Do MMMM YYYY")}
-                  </p>
-                </Coupon>
+                <Link to={{pathname: "/redeem", state: {
+                  name: purchase.coupon.store.name,
+                  code: purchase.code,
+                  description: purchase.coupon.description,
+                  status: purchase.status
+                 }}}>
+                  <Coupon>
+                    <Store>
+                      <h2>
+                        {purchase.coupon.store.name.charAt(0).toUpperCase()}
+                        {purchase.coupon.store.name.substr(1)}
+                      </h2>
+                      <Img src={purchase.coupon.store.logo} alt="" />
+                    </Store>
+                    <h3>{purchase.coupon.name}</h3>
+                    <p>
+                      Expiry date:{" "}
+                      {moment(purchase.coupon.expiration).format(
+                        "Do MMMM YYYY"
+                      )}
+                    </p>
+                  </Coupon>
+                </Link>
               ))}{" "}
             </>
           ) : (

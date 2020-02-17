@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 
 import styled from "styled-components";
+import Fade from 'react-reveal'
 
 import Page from "../../components/Page";
 import Button from "../../components/Button";
@@ -54,8 +55,10 @@ const Result = () => {
       <Spacer/>
       <h3>and recieved</h3>
       <Circle inputColor="#B0E6CE">
+      <Fade bottom>
         <H1>{points}</H1>
         <img src={coins} alt=""></img>
+      </Fade>
       </Circle>{" "}
       <h2>points</h2>
       <Link to="/coupons">

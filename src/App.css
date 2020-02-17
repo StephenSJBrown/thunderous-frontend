@@ -35,11 +35,10 @@ a {
 }
 
 .page {
-  /* padding: 10px 30px 50px 30px; */
-  height: 100vh;
+  /* height: 100vh; */
   overflow-y: auto;
   overflow-x: hidden;
-  position: fixed;
+  /* position: fixed; */
   width: 100vw;
 }
 
