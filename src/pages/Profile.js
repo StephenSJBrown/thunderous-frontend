@@ -15,14 +15,18 @@ import {
 } from "../styles/Profile";
 
 const logoutbutton={
-  width: '332px',
+  display: 'block',
+  borderRadius: '44px', 
+  border: 'none',
+  width: '75vw',
+  maxWidth: '332px',
   height: '48px',
-  border:'none',
-  borderRadius:'44px',
-  backgroundColor:'#EAC1B4',
-  // marginTop:'10px'
-  fontSize:'20px',
-  color:'#494949'
+  backgroundColor: '#EAC1B4',
+  margin: '10px auto',
+  fontSize: '20px',
+  color: '#494949',
+  cursor: 'pointer',
+  transition: '500ms'
 }
 
 const Profile = () => {
