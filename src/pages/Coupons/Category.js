@@ -58,9 +58,10 @@ const Category = () => {
 
   const Flex = styled.div`
     display: flex;
-    width: 60%;
+    width: 70%;
     max-width: 500px;
     align-items: center;
+    overflow: scroll;
   `;
 
   return (

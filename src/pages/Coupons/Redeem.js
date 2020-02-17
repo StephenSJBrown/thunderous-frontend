@@ -68,7 +68,6 @@ const Redeem = () => {
           <Img src={Centre3QR} alt="coupon qr code"></Img>
           <Code>{code.toUpperCase()}</Code>
           <p>{description}</p>
-          <p>{status}</p>
         </Redeem>
         <Button onClick={handleCancel}>Cancel</Button>
       </Fade>

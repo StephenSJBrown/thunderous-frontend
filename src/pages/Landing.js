@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import styled from 'styled-components'
-
 import Page from '../components/Page'
 import Button from "../components/Button";
 
@@ -35,12 +33,6 @@ const Landing = () => {
   const login = () => {
     history.push("/login");
   };
-
-  const Flex = styled.div`
-  display: flex;
-  justify-content: center;
-  `
-
 
   return (
     <Page>

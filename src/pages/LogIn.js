@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory} from 'react-router-dom'
+import { useHistory,Redirect} from 'react-router-dom'
 
 import { FormFeedback } from "reactstrap";
 import axios from "axios";
@@ -30,7 +30,10 @@ const LogIn = () => {
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
 
+  const id = localStorage.getItem("jwt");
   const history = useHistory()
+
+
 
   const handleInput = e => {
     setText(e.target.value);
@@ -44,7 +47,8 @@ const LogIn = () => {
     return text === "" || password === "";
   };
 
-  const logIn = () => {
+  const logIn = (e) => {
+    e.preventDefault()
     axios({
       method: "POST",
       url: "http://localhost:5000/api/login",
@@ -80,11 +84,15 @@ const LogIn = () => {
   };
 
 
+  if (id) {
+    return <Redirect to="/" />
+  }
 
   return (
     <Page>
       <h1>Log In</h1> <img alt="" src={Logo} />
       <Form>
+        <div>
         <Paragraph>Username</Paragraph>
         <BoxShadowInput
           type="text"
@@ -92,6 +100,8 @@ const LogIn = () => {
           value={text}
         />
         <FormFeedback></FormFeedback>
+        </div>
+        <div>
         <Paragraph>Password</Paragraph>
         <BoxShadowInput
           type="password"
@@ -99,13 +109,13 @@ const LogIn = () => {
           value={password}
         />
         <FormFeedback></FormFeedback>
-      </Form>
-      <Button onClick={logIn} disabled={isDisabled()}>
+        </div>
+      <Button type="submit" onClick={logIn} disabled={isDisabled()}>
         Log In
       </Button>
+      </Form>
       <Flex>
-        <p>Don't have an account?</p>{" "}
-        <a href="/signup">Sign Up</a>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
       </Flex>
       <a href="#">T&CS</a>
     </Page>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 import axios from "axios";
 import styled from "styled-components";
@@ -19,12 +19,6 @@ flex-direction: column;
 align-items: center;
 margin: 24px 0;
 `;
-const Flex = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-`;
 
 const SignUp = ({ toggle, setLoggedIn }) => {
   const [delay, setDelay] = useState(null);
@@ -33,6 +27,10 @@ const SignUp = ({ toggle, setLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
+
+  const history = useHistory()
+
+  let id = localStorage.getItem("jwt");
 
   const handleDelay = (e, callback) => {
     let x = { ...e };
@@ -87,7 +85,8 @@ const SignUp = ({ toggle, setLoggedIn }) => {
     );
   };
 
-  const signUp = () => {
+  const signUp = (e) => {
+    e.preventDefault()
     axios({
       method: "POST",
       url: "http://localhost:5000/api/users/",
@@ -126,19 +125,9 @@ const SignUp = ({ toggle, setLoggedIn }) => {
       });
   };
 
-  const Form = styled.form`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 24px 0;
-  `;
-  const Flex = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  `;
+  if (id) {
+    return <Redirect to="/" />
+  }
 
   return (
     <Page>
@@ -176,7 +165,6 @@ const SignUp = ({ toggle, setLoggedIn }) => {
         <BoxShadowInput
           type="email"
           value={email}
-          autoFocus
           {...(email.length > 5
             ? emailIsInvalid()
               ? { invalid: true }

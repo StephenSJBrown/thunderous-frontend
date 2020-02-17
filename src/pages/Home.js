@@ -14,17 +14,7 @@ import DepositIcon from "../icons/weight.svg";
 import CouponIcon from "../icons/coupon.svg";
 
 const HomePage = () => {
-  let id = localStorage.getItem("jwt");
-
-  const history = useHistory();
-
-  const login = () => {
-    history.push("/login");
-  };
-
-  const signup = () => {
-    history.push("/signup");
-  };
+  const id = localStorage.getItem("jwt");
 
   const MainButton = styled.div`
     width: 251px;
