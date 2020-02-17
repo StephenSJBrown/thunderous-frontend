@@ -20,6 +20,9 @@ const Coupon = ({ name, deal, points, id }) => {
 
   const P = styled.p`
   margin: 0px;
+  max-width: 102px;
+  overflow: hidden;
+  max-height: 35px;
   `
   const H3 = styled.h3`
   margin: 0px;
