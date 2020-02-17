@@ -2,13 +2,10 @@ import React, { useState} from "react";
 import styled from "styled-components";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
-import Ting from "./Modals/Modal";
 import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
 import logouticon from "../icons/logouticongreen.svg"
 // import logouticon from "../icons/logouticongreen.png"
-
-import { Button } from "reactstrap";
 
 const applogoStyle = {
   // marginTop:'15px',
@@ -17,24 +14,16 @@ const applogoStyle = {
   top: "5px"
 };
 
-const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
+const NavBar = ({ toast }) => {
   const location = useLocation();
   console.log(location.pathname);
 
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => {
-    setModal(!modal);
-  };
-
-  const [uploadModal, setUploadModal] = useState(false);
-  const uploadToggle = () => setUploadModal(!uploadModal);
+  let id = localStorage.getItem("jwt");
 
   const history = useHistory();
 
   const logOut = () => {
     localStorage.removeItem("jwt");
-    setLoggedIn(false);
     history.push("/");
     toast.success(`You've been logged out`, {
       position: "top-left",
@@ -58,7 +47,7 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
   `;
 
   const RightNav = styled.div`
-    width: 10vw;
+    max-width: 10vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,29 +73,18 @@ const NavBar = ({ toast, setLoggedIn, loggedIn }) => {
             </Linker>
           </Link>
         )}
-        {loggedIn ? (
+        { id ? (
           <>
             <RightNav>
               <Linker  onClick={logOut}>
-        
                 <img style={{marginTop:'10px'}} src={logouticon}/>
               </Linker>
             </RightNav>
           </>
         ) : (
-          <Link color="danger" onClick={toggle}>
-            LogIn
-          </Link>
+          <></>
         )}
       </NavBar>
-      <Ting
-        toggle={toggle}
-        modal={modal}
-        setModal={setModal}
-        toast={toast}
-        setLoggedIn={setLoggedIn}
-        loggedIn={loggedIn}
-      />
     </>
   );
 };

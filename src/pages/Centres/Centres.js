@@ -13,8 +13,8 @@ import goarrow from "../../icons/goarrow.svg";
 import centreicon from '../../icons/locationgreen.svg'
 
 const Centres = () => {
-  const position = usePosition();
-  console.log(position)
+  const {latitude, longitude} = usePosition();
+  console.log(latitude, longitude)
 
   // const [placeID, setPlaceID] = useState("");
   const [centres, setCentres] = useState([]);
@@ -23,27 +23,27 @@ const Centres = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (position){
+    if ( latitude ){
       axios({
         method: 'POST',
         url: 'http://localhost:5000/api/centres/',
         data: {
-            lat: 3.134873,
-            lng: 101.6299415
+            lat: latitude,
+            lng: longitude
         }
     })
         .then(response => {
             console.log(response.data.centres)
             setFirst(response.data.centres.shift())
             setCentres(response.data.centres)
-            toast.success(`Found nearest centres`, {
-                position: "top-left",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            // toast.success(`Found nearest centres`, {
+            //     position: "top-left",
+            //     autoClose: 2000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            // });
             setIsLoading(false)
           })
           .catch(error => {
@@ -61,7 +61,7 @@ const Centres = () => {
         )
 
     }
-  }, []);
+  }, [latitude]);
 
   const Centre = styled.div`
     width: 276px;
@@ -87,6 +87,8 @@ const Centres = () => {
     align-items: center;
   `;
 
+
+
   return (
     <Page className="page">
       {/* <h1>Centres</h1> */}
@@ -94,14 +96,14 @@ const Centres = () => {
         <img src={centreicon}/>
       </div>
       <h3>Your nearest recycling centre is: </h3>
-      { isLoading ? <LoadingIndicator/> :
+      { isLoading ? <>  <LoadingIndicator/> <h2>Ensure you have location services enabled</h2> </> :
         <>
-        <a href={`https://www.google.com/maps/place/?q=place_id:${first.place_id}`}>
+        <a target="_blank" href={`https://www.google.com/maps/place/?q=place_id:${first.place_id}`}>
           <BigCentre>
-            <h2>{first.name}</h2>
+            <h2>1. {first.name}</h2>
             <Flex>
-              <h3>1. {first.distance}km away</h3>
-              <a href="#">
+              <h3>{first.distance}km away</h3>
+              <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${first.name}&destination_place_id=${first.place_id}&dir_action=navigate`}>
                 <img src={goarrow} alt="get directions"></img>
               </a>
             </Flex>
@@ -109,12 +111,12 @@ const Centres = () => {
           </a>
         <p>Other centres are: </p>
         { centres.map((centre, index) => (
-          <a href={`https://www.google.com/maps/place/?q=place_id:${centre.place_id}`}>
+          <a target="_blank" href={`https://www.google.com/maps/place/?q=place_id:${centre.place_id}`}>
             <Centre>
               <h3>{index+2}. {centre.name}</h3>
               <Flex>
                 <h3>{centre.distance}km away</h3>
-                <a href={`https://www.google.com/maps/dir/?api=1&origin=${position.latitude},${position.longitude}&destination=${centre.name}&destination_place_id=${centre.place_id}&dir_action=navigate`}>
+                <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${centre.name}&destination_place_id=${centre.place_id}&dir_action=navigate`}>
                   <img src={goarrow} alt="get directions"></img>
                 </a>
               </Flex>

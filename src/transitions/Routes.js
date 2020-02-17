@@ -3,7 +3,8 @@ import { Route, withRouter } from "react-router-dom";
 import { AnimatedSwitch } from "./AnimatedSwitch";
 
 import HomePage from '../pages/Home'
-import Landing from '../pages/Landing'
+import LogIn from '../pages/LogIn'
+import SignUp from '../pages/SignUp'
 
 import Profile from "../pages/Profile";
 
@@ -27,7 +28,6 @@ import Result from "../pages/Deposits/Result"
  *
  * Try to remove .page to see the effect.
  */
-
 
 {/* <Route exact path="/" component={HomePage} />
       <Route path="/profile" component={Profile} />
@@ -53,9 +53,12 @@ const routes = [
     path: "/"
   },
   {
-    exact: true,
-    component: Landing,
-    path: "/landing"
+    component: SignUp,
+    path: "/signup"
+  },
+  {
+    component: LogIn,
+    path: "/login"
   },
   {
     component: Profile,

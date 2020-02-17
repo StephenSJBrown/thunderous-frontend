@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import styled from "styled-components";
 
+import Landing from './Landing'
+
 import Header from "../components/Header";
 import Page from "../components/Page";
+import Button from "../components/Button";
 
 import HomeIcon from "../icons/home.svg";
 import CentersIcon from "../icons/location.svg";
@@ -12,19 +15,29 @@ import DepositIcon from "../icons/weight.svg";
 import CouponIcon from "../icons/coupon.svg";
 
 const BackgroundStyle = {
-  clipPath: 'polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)',
-  backgroundColor: '#B0E6CE',
-  backgroundImage: 'linear - gradient(to bottom right, #B0E6CE, #F7FFFB)',
-  height: '100vh',
-  width: '100vw',
-  position: 'fixed',
-  top: '0',
-  left: '0'
-  }
-  
+  clipPath: "polygon(66 % 67 %, 100 % 13 %, 100 % 100 %, 0 100 %)",
+  backgroundColor: "#B0E6CE",
+  backgroundImage: "linear - gradient(to bottom right, #B0E6CE, #F7FFFB)",
+  height: "100vh",
+  width: "100vw",
+  position: "fixed",
+  top: "0",
+  left: "0"
+};
+
 const HomePage = () => {
-  
-    
+  let id = localStorage.getItem("jwt");
+
+  const history = useHistory();
+
+  const login = () => {
+    history.push("/login");
+  };
+
+  const signup = () => {
+    history.push("/signup");
+  };
+
   const MainButton = styled.div`
     width: 251px;
     height: 92px;
@@ -41,33 +54,39 @@ const HomePage = () => {
   `;
 
   return (
-    <Page className="page">
-      <Header>
-        <img alt="" src={HomeIcon}/>
-      </Header>
-      <br />
-      <div style={{marginTop:'50px'}}>
-        <Link to="/centres">
-          <MainButton>
-            <h2>Centres</h2> <img alt="" src={CentersIcon} />
-          </MainButton>
-        </Link>
-        <br />
-        <Link to="/deposit">
-          <MainButton>
-            <h2>Deposit</h2> <img alt="" src={DepositIcon} />
-          </MainButton>
-        </Link>
-        <br />
-        <Link to="/coupons">
-          <MainButton>
-            <h2>Coupons</h2> <img alt="" src={CouponIcon} />
-          </MainButton>
-        </Link>
-        <br />
-      </div>
-      <div className="background-gradient"></div>
-    </Page>
+    <>
+      {id ? (
+        <>
+          <Header />
+          <Page className="page">
+            <img alt="" src={HomeIcon} />
+            <br />
+            <div style={{ marginTop: "50px" }}>
+              <Link to="/centres">
+                <MainButton>
+                  <h2>Centres</h2> <img alt="" src={CentersIcon} />
+                </MainButton>
+              </Link>
+              <Link to="/deposit">
+                <MainButton>
+                  <h2>Deposit</h2> <img alt="" src={DepositIcon} />
+                </MainButton>
+              </Link>
+              <Link to="/coupons">
+                <MainButton>
+                  <h2>Coupons</h2> <img alt="" src={CouponIcon} />
+                </MainButton>
+              </Link>
+            </div>
+            <div className="background-gradient"></div>
+          </Page>{" "}
+        </>
+      ) : (
+        <Page>
+          <Landing/>
+        </Page>
+      )}
+    </>
   );
 };
 
