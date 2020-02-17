@@ -18,6 +18,7 @@ export const AnimatedSwitch = ({ location, children, ...rest }) => {
    */
 
   const history = useHistory();
+  console.log(history)
 
   const reverse = location.pathname === "/" || history.action === "POP";
 
