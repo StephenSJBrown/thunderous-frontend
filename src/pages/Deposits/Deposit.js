@@ -81,12 +81,14 @@ const Deposit = setCentreObject => {
         style={previewStyle}
         onError={handleError}
         onScan={handleScan}
+        facingMode="rear"
       /> ? (
         <QrReader
           delay={delay}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
+          facingMode="rear"
         />
       ) : (
         <LoadingIndicator />
