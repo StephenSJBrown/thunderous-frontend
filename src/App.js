@@ -18,7 +18,7 @@ function App() {
   
   
   const [points, setPoints] = useState(0)
-  const [username, setUsername] = useState("stephen")
+  const [username, setUsername] = useState("")
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("jwt") !== null
   );

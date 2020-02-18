@@ -88,7 +88,7 @@ const MyCoupons = () => {
               {purchases.map(purchase => (
                 <Link to={{pathname: "/redeem", state: {
                   name: purchase.coupon.store.name,
-                  code: purchase.code,
+                  code: purchase.qr_string,
                   description: purchase.coupon.description,
                   status: purchase.status
                  }}}>

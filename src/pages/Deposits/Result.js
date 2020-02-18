@@ -24,6 +24,7 @@ const Result = () => {
 
   const Flex = styled.div`
     display: flex;
+    max-width: 80vw;
   `;
 
   const H1 = styled.h1`
@@ -49,7 +50,7 @@ const Result = () => {
       <Spacer/>
       <Flex>
       <h2>{weight}</h2>
-      <h2>kg</h2>
+      <h2>g</h2>
       <Icon src={weightsmall} alt=""></Icon>
       </Flex>
       <Spacer/>
