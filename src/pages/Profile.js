@@ -83,7 +83,7 @@ background-image: ${profileImage};
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/users/${id}`)
+      .get(`https://ninja-recyclo.herokuapp.com//api/users/${id}`)
       .then(result => {
         console.log(result.data);
         const {
@@ -119,7 +119,7 @@ background-image: ${profileImage};
     setIsLoading(true);
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/users/${id}`,
+      url: `https://ninja-recyclo.herokuapp.com//api/users/${id}`,
       data: {
         username,
         email,

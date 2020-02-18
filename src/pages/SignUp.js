@@ -89,7 +89,7 @@ const SignUp = () => {
     e.preventDefault()
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/users/",
+      url: "https://ninja-recyclo.herokuapp.com//api/users/",
       data: {
         username: text,
         email: email,

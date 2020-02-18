@@ -15,7 +15,7 @@ const Deposit = setCentreObject => {
 
   const handleScan = link => {
     if (link) {
-      if (link.includes("localhost:5000/api/deposits/create")) {
+      if (link.includes("ninja-recyclo.herokuapp.com/api/deposits/create")) {
         console.log("link", link);
         const user = localStorage.getItem("jwt");
         setResult("TEST: That's the right QR code");

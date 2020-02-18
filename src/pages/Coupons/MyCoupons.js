@@ -26,7 +26,7 @@ const MyCoupons = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/purchases/index/${id}`)
+      .get(`https://ninja-recyclo.herokuapp.com//api/purchases/index/${id}`)
       .then(result => {
         console.log(result.data);
         setPurchases(result.data);
