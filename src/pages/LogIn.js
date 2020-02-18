@@ -51,7 +51,7 @@ const LogIn = () => {
     e.preventDefault()
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/login",
+      url: "https://ninja-recyclo.herokuapp.com//api/login",
       data: {
         username: text,
         password: password

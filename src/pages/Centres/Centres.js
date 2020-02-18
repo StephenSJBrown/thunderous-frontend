@@ -26,7 +26,7 @@ const Centres = () => {
     if ( latitude ){
       axios({
         method: 'POST',
-        url: 'http://localhost:5000/api/centres/',
+        url: 'https://ninja-recyclo.herokuapp.com//api/centres/',
         data: {
             lat: latitude,
             lng: longitude

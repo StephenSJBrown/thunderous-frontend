@@ -26,7 +26,7 @@ const Coupon = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/coupons/${id}`)
+      .get(`https://ninja-recyclo.herokuapp.com//api/coupons/${id}`)
       .then(result => {
         console.log(result.data);
         setCoupon(result.data);
@@ -41,7 +41,7 @@ const Coupon = () => {
   const BuyCoupon = () => {
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/purchases/create/${id}`,
+      url: `https://ninja-recyclo.herokuapp.com//api/purchases/create/${id}`,
       data: {
         user_id: user
       }
@@ -77,7 +77,7 @@ const Coupon = () => {
     console.log("user", user);
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/purchases/update/${purchaseID}`,
+      url: `https://ninja-recyclo.herokuapp.com//api/purchases/update/${purchaseID}`,
       data: {
         user_id: user
       }
