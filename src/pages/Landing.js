@@ -38,6 +38,7 @@ const Landing = () => {
     <Page>
       <header style={headerStyle}>
         <img src={Logo} />
+        
       </header>
       <h1>Welcome to <br/> RECYLCO </h1>
       <div style={divStyle}>

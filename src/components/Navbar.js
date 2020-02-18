@@ -5,6 +5,8 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import usericon from "../icons/usericon.png"
 import applogo from "../icons/screenshotsmall.png"
 import logouticon from "../icons/logouticongreen.svg"
+import pointsicon from "../icons/pointsicon.svg"
+
 
 const applogoStyle = {
   position: "absolute",
@@ -12,7 +14,7 @@ const applogoStyle = {
   top: "5px"
 };
 
-const NavBar = ({ toast }) => {
+const NavBar = ({ toast ,points, username}) => {
   const location = useLocation();
   console.log(location.pathname);
 
@@ -45,7 +47,7 @@ const NavBar = ({ toast }) => {
   `;
 
   const RightNav = styled.div`
-    max-width: 10vw;
+    max-width: 25vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,9 +62,12 @@ const NavBar = ({ toast }) => {
     { id ? <>
       <NavBar>
         {location.pathname === "/" ? (
-          <Link to="/profile">
-            <img src={usericon} alt="" />
-          </Link>
+          <div style={{display:'flex'}}>
+            <Link to="/profile">
+              <img style={{marginTop:'10px'}} src={usericon} alt="" />
+            </Link>
+             <h3 style={{marginTop:'20px', marginLeft:'10px'}}>{username}</h3>
+          </div>
         ) : (
           <Link to="/">
             <Linker>
@@ -73,9 +78,10 @@ const NavBar = ({ toast }) => {
         { id ? (
           <>
             <RightNav>
-              <Linker  onClick={logOut}>
-                <img style={{marginTop:'10px'}} src={logouticon}/>
-              </Linker>
+              <Link to="/coupons">
+                <img style={{marginTop:'10px'}} src={pointsicon}/>
+              </Link>
+                <h3 style={{marginLeft:'10px',marginTop:'10 px'}}>{points}</h3>
             </RightNav>
           </>
         ) : (
