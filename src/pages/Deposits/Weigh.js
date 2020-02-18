@@ -21,7 +21,7 @@ const Weigh = () => {
     const interval = setInterval(() => {
       axios({
         method: "GET",
-        url: `http://localhost:5000/api/deposits/show/${deposit_id}`
+        url: `https://ninja-recyclo.herokuapp.com//api/deposits/show/${deposit_id}`
       })
         .then(response => {
             console.log(response.data);

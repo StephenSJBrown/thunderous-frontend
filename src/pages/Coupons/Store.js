@@ -14,7 +14,7 @@ const Store = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/stores/store/${store}`)
+      .get(`https://ninja-recyclo.herokuapp.com//api/stores/store/${store}`)
       .then(result => {
         console.log(result.data.coupons);
         setCoupons(result.data.coupons);

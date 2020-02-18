@@ -89,7 +89,7 @@ const SignUp = () => {
     e.preventDefault()
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/users/",
+      url: "https://ninja-recyclo.herokuapp.com//api/users/",
       data: {
         username: text,
         email: email,
@@ -108,11 +108,11 @@ const SignUp = () => {
           draggable: true
         });
         localStorage.setItem("jwt", response.data.new_user.id);
-        useHistory.push("/profile");
+        history.push("/profile");
       })
       .catch(error => {
         console.error(error); // so that we know what went wrong if the request failed
-        toast.error(`IT went wrong`, {
+        toast.error(`It went wrong, ${error}`, {
           position: "top-left",
           autoClose: 2000,
           hideProgressBar: false,

@@ -24,7 +24,7 @@ const Category = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/stores/${category}`)
+      .get(`https://ninja-recyclo.herokuapp.com//api/stores/${category}`)
       .then(result => {
         console.log(result.data.stores);
         setStores(result.data.stores);
